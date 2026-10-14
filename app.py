@@ -280,23 +280,14 @@ if menu == "Inicio & Dashboard":
   )
 ##################################
 #      ITRODUCCION 
-  st.markdown(
-      "<p style='color:#a48735; font-weight:800; font-size:12px;"
-      " letter-spacing:2px; text-transform:uppercase;'>Nosotros</p>",
-      unsafe_allow_html=True,
-  )
 
-st.markdown("## Regiones")
-st.markdow(
-    ""
-)
 ##################################
   # --- CULTIVOS DE REFERENCIA ---
-st.markdown(
+  st.markdown(
       "<p style='color:#a48735; font-weight:800; font-size:12px;"
       " letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p>",
       unsafe_allow_html=True,
-)
+  )
   st.markdown("## Cultivos de referencia")
   st.write(
       "Información general para organizar variables de clima, suelo, agua y"
