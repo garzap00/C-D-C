@@ -401,7 +401,7 @@ st.markdown(
 c1, c2, c3, c4 = st.columns(4)
 cols = [c1, c2, c3, c4]
 
-    for index, cultivo in enumerate(info_region["cultivos"]):
+for index, cultivo in enumerate(info_region["cultivos"]):
         with cols[index]:
             with st.container(border=True):
                 st.markdown(f"##### {cultivo['nombre']}")
