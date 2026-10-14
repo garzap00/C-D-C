@@ -28,6 +28,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+
+
 # --- BASE DE DATOS DINÁMICA POR TERRITORIO ---
 DATOS_TERRITORIOS = {
     "Meta (Altillanura)": {
@@ -207,99 +209,6 @@ if menu == "Inicio & Dashboard":
       unsafe_allow_html=True,
   )
 
-  # --- PANEL DE CONTROL Y FILTROS ---
-  st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
-  col_t1, col_t2, col_t3 = st.columns(3)
-
-  with col_t1:
-    territorio_elegido = st.selectbox(
-        "Departamento / Región", list(DATOS_TERRITORIOS.keys())
-    )
-
-  with col_t2:
-    cultivo_filtro = st.selectbox(
-        "Filtrar por Orientación",
-        ["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"],
-    )
-
-  with col_t3:
-    metrica_filtro = st.selectbox(
-        "Métrica de Enfoque",
-        ["Humedad del Suelo", "Temperatura Promedio", "Área Cultivada"],
-    )
-
-  # Cargar datos específicos del territorio elegido
-  info_region = DATOS_TERRITORIOS[territorio_elegido]
-
-  st.markdown("<br>", unsafe_allow_html=True)
-  st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
-
-  # --- TARJETAS KPI DINÁMICAS ---
-  k1, k2, k3, k4 = st.columns(4)
-  with k1:
-    st.markdown(
-        f"""
-        <div class="kpi-card">
-            <div style="color:#718077; font-size:13px;">Humedad Promedio</div>
-            <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['humedad']}</div>
-            <small style="color:#2e7d32;">{info_region['est_humedad']}</small>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-  with k2:
-    st.markdown(
-        f"""
-        <div class="kpi-card">
-            <div style="color:#718077; font-size:13px;">Temperatura Suelo</div>
-            <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['temp']}</div>
-            <small style="color:#718077;">{info_region['est_temp']}</small>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-  with k3:
-    st.markdown(
-        f"""
-        <div class="kpi-card">
-            <div style="color:#718077; font-size:13px;">Áreas Registradas</div>
-            <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['hectareas']}</div>
-            <small style="color:#c8a64e;">Sensores Activos</small>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-  with k4:
-    st.markdown(
-        f"""
-        <div class="kpi-card">
-            <div style="color:#718077; font-size:13px;">Productores Conectados</div>
-            <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['productores']}</div>
-            <small style="color:#2e7d32;">Comunidad SENA</small>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-  st.markdown("<br>", unsafe_allow_html=True)
-  st.markdown(
-      f"### 🌾 Cultivos Característicos en **{territorio_elegido.split(' ')[0]}**"
-  )
-
-
-
-  # --- CULTIVOS DINÁMICOS ---
-  c1, c2, c3, c4 = st.columns(4)
-  cols = [c1, c2, c3, c4]
-
-  for index, cultivo in enumerate(info_region["cultivos"]):
-    with cols[index]:
-      with st.container(border=True):
-        st.markdown(f"##### {cultivo['nombre']}")
-        st.write(cultivo["desc"])
 # ==========================================
 # CULTIVOS DE REFERENCIA (Tus tarjetas originales)
 # ==========================================
@@ -403,6 +312,101 @@ if menu == "Inicio & Dashboard":
 
 
     st.markdown("<br><br>", unsafe_allow_html=True)
+    
+  # --- PANEL DE CONTROL Y FILTROS ---
+  st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
+  col_t1, col_t2, col_t3 = st.columns(3)
+
+  with col_t1:
+    territorio_elegido = st.selectbox(
+        "Departamento / Región", list(DATOS_TERRITORIOS.keys())
+    )
+
+  with col_t2:
+    cultivo_filtro = st.selectbox(
+        "Filtrar por Orientación",
+        ["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"],
+    )
+
+  with col_t3:
+    metrica_filtro = st.selectbox(
+        "Métrica de Enfoque",
+        ["Humedad del Suelo", "Temperatura Promedio", "Área Cultivada"],
+    )
+
+  # Cargar datos específicos del territorio elegido
+  info_region = DATOS_TERRITORIOS[territorio_elegido]
+
+  st.markdown("<br>", unsafe_allow_html=True)
+  st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
+
+  # --- TARJETAS KPI DINÁMICAS ---
+  k1, k2, k3, k4 = st.columns(4)
+  with k1:
+    st.markdown(
+        f"""
+        <div class="kpi-card">
+            <div style="color:#718077; font-size:13px;">Humedad Promedio</div>
+            <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['humedad']}</div>
+            <small style="color:#2e7d32;">{info_region['est_humedad']}</small>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+  with k2:
+    st.markdown(
+        f"""
+        <div class="kpi-card">
+            <div style="color:#718077; font-size:13px;">Temperatura Suelo</div>
+            <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['temp']}</div>
+            <small style="color:#718077;">{info_region['est_temp']}</small>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+  with k3:
+    st.markdown(
+        f"""
+        <div class="kpi-card">
+            <div style="color:#718077; font-size:13px;">Áreas Registradas</div>
+            <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['hectareas']}</div>
+            <small style="color:#c8a64e;">Sensores Activos</small>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+  with k4:
+    st.markdown(
+        f"""
+        <div class="kpi-card">
+            <div style="color:#718077; font-size:13px;">Productores Conectados</div>
+            <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['productores']}</div>
+            <small style="color:#2e7d32;">Comunidad SENA</small>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+  st.markdown("<br>", unsafe_allow_html=True)
+  st.markdown(
+      f"### 🌾 Cultivos Característicos en **{territorio_elegido.split(' ')[0]}**"
+  )
+
+
+
+  # --- CULTIVOS DINÁMICOS ---
+  c1, c2, c3, c4 = st.columns(4)
+  cols = [c1, c2, c3, c4]
+
+  for index, cultivo in enumerate(info_region["cultivos"]):
+    with cols[index]:
+      with st.container(border=True):
+        st.markdown(f"##### {cultivo['nombre']}")
+        st.write(cultivo["desc"])
+
 
 # ==========================================
 # SECCIÓN 2: FORO Y RED SOCIAL AGRO
