@@ -341,11 +341,11 @@ st.markdown("<br>", unsafe_allow_html=True)
 st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
 
   # --- TARJETAS KPI DINÁMICAS ---
-  k1, k2, k3, k4 = st.columns(4)
+k1, k2, k3, k4 = st.columns(4)
   with k1:
     st.markdown(
         f"""
-    <div class="kpi-card">
+        <div class="kpi-card">
             <div style="color:#718077; font-size:13px;">Humedad Promedio</div>
             <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['humedad']}</div>
             <small style="color:#2e7d32;">{info_region['est_humedad']}</small>
@@ -357,7 +357,7 @@ st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
   with k2:
     st.markdown(
         f"""
-    <div class="kpi-card">
+        <div class="kpi-card">
             <div style="color:#718077; font-size:13px;">Temperatura Suelo</div>
             <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['temp']}</div>
             <small style="color:#718077;">{info_region['est_temp']}</small>
@@ -369,7 +369,7 @@ st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
   with k3:
     st.markdown(
         f"""
-    <div class="kpi-card">
+        <div class="kpi-card">
             <div style="color:#718077; font-size:13px;">Áreas Registradas</div>
             <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['hectareas']}</div>
             <small style="color:#c8a64e;">Sensores Activos</small>
@@ -381,7 +381,7 @@ st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
   with k4:
     st.markdown(
         f"""
-    <div class="kpi-card">
+        <div class="kpi-card">
             <div style="color:#718077; font-size:13px;">Productores Conectados</div>
             <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['productores']}</div>
             <small style="color:#2e7d32;">Comunidad SENA</small>
