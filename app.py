@@ -1,9 +1,20 @@
 import streamlit as st
+from supabase import create_client
 
 # Configuración inicial de la página
 st.set_page_config(
     page_title="C.D.C. | Campo Digital Colombia", page_icon="🌾", layout="wide"
 )
+
+# Conexión segura a Supabase usando los secretos de Streamlit
+@st.cache_resource
+def init_connection():
+  url = st.secrets["SUPABASE_URL"]
+  key = st.secrets["SUPABASE_KEY"]
+  return create_client(url, key)
+
+
+supabase = init_connection()
 
 # Estilos CSS
 st.markdown(
@@ -27,6 +38,42 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
+
+
+# --- FUNCIONES DE USUARIOS CON SUPABASE ---
+def obtener_usuarios_db():
+  try:
+    response = supabase.table("usuarios").select("*").execute()
+    data = response.data
+    # Convertimos la lista de Supabase en un diccionario para mantener la compatibilidad del login
+    usuarios_dict = {}
+    for row in data:
+      usuarios_dict[row["correo"]] = {
+          "password": row["password"],
+          "nombre": row["nombre"],
+      }
+    # Asegurar que el admin por defecto siempre exista
+    if "admin@sena.edu.co" not in usuarios_dict:
+      usuarios_dict["admin@sena.edu.co"] = {
+          "password": "123",
+          "nombre": "Aprendiz SENA",
+      }
+    return usuarios_dict
+  except Exception:
+    return {
+        "admin@sena.edu.co": {"password": "123", "nombre": "Aprendiz SENA"}
+    }
+
+
+def registrar_usuario_db(email, password, nombre):
+  try:
+    supabase.table("usuarios").insert(
+        {"correo": email, "password": password, "nombre": nombre}
+    ).execute()
+    return True
+  except Exception:
+    return False
+
 
 # --- BASE DE DATOS DINÁMICA POR TERRITORIO ---
 DATOS_TERRITORIOS = {
@@ -162,11 +209,7 @@ DATOS_TERRITORIOS = {
     },
 }
 
-# Memoria de sesión para el Foro
-if "usuarios" not in st.session_state:
-  st.session_state.usuarios = {
-      "admin@sena.edu.co": {"password": "123", "nombre": "Aprendiz SENA"}
-  }
+# Inicializar estados de sesión
 if "sesion_activa" not in st.session_state:
   st.session_state.sesion_activa = None
 if "posts" not in st.session_state:
@@ -207,6 +250,103 @@ if menu == "Inicio & Dashboard":
       unsafe_allow_html=True,
   )
 
+  # --- CULTIVOS DE REFERENCIA ---
+  st.markdown(
+      "<p style='color:#a48735; font-weight:800; font-size:12px;"
+      " letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p>",
+      unsafe_allow_html=True,
+  )
+  st.markdown("## Cultivos de referencia")
+  st.write(
+      "Información general para organizar variables de clima, suelo, agua y"
+      " producción."
+  )
+  st.markdown("<br>", unsafe_allow_html=True)
+
+  c1, c2, c3, c4 = st.columns(4)
+
+  with c1:
+    with st.container(border=True):
+      st.image(
+          "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600&q=80",
+          use_container_width=True,
+      )
+      st.markdown("### Maíz")
+      st.write(
+          "Cultivo de importancia alimentaria y productiva, adaptable a"
+          " diferentes sistemas agrícolas."
+      )
+      st.markdown("---")
+      sc1, sc2 = st.columns(2)
+      with sc1:
+        st.caption("Suelo\nBien drenado")
+        st.caption("Clima\nCálido")
+      with sc2:
+        st.caption("Agua\nModerada")
+        st.caption("Uso\nAlimentación")
+
+  with c2:
+    with st.container(border=True):
+      st.image(
+          "https://mareterracoffee.com/wp-content/uploads/2022/11/Planta-de-cafe--e1767865783596.png",
+          use_container_width=True,
+      )
+      st.markdown("### Café")
+      st.write(
+          "Sistema productivo asociado a zonas con condiciones climáticas y"
+          " altitudinales particulares."
+      )
+      st.markdown("---")
+      sc1, sc2 = st.columns(2)
+      with sc1:
+        st.caption("Suelo\nDrenado")
+        st.caption("Clima\nTemplado")
+      with sc2:
+        st.caption("Agua\nDisponible")
+        st.caption("Uso\nComercial")
+
+  with c3:
+    with st.container(border=True):
+      st.image(
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgrsv2ZUeqLtcPtGEyfsP0h9jNDsZtuHtKwbC_1TyQtQ&s",
+          use_container_width=True,
+      )
+      st.markdown("### Plátano")
+      st.write(
+          "Cultivo tropical que requiere disponibilidad de agua y condiciones"
+          " adecuadas de temperatura."
+      )
+      st.markdown("---")
+      sc1, sc2 = st.columns(2)
+      with sc1:
+        st.caption("Suelo\nFértil")
+        st.caption("Clima\nTropica")
+      with sc2:
+        st.caption("Agua\nAlta")
+        st.caption("Uso\nAlimentación")
+
+  with c4:
+    with st.container(border=True):
+      st.image(
+          "https://grandsur.com/wp-content/uploads/2021/02/GrandSur-Our-Products-ASSS.jpg",
+          use_container_width=True,
+      )
+      st.markdown("### Cacao")
+      st.write(
+          "Sistema productivo tropical que requiere condiciones adecuadas de"
+          " humedad, temperatura y suelo."
+      )
+      st.markdown("---")
+      sc1, sc2 = st.columns(2)
+      with sc1:
+        st.caption("Suelo\nProfundo")
+        st.caption("Clima\nTropica")
+      with sc2:
+        st.caption("Agua\nDisponible")
+        st.caption("Uso\nComercial")
+
+  st.markdown("<br><br>", unsafe_allow_html=True)
+
   # --- PANEL DE CONTROL Y FILTROS ---
   st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
   col_t1, col_t2, col_t3 = st.columns(3)
@@ -228,13 +368,12 @@ if menu == "Inicio & Dashboard":
         ["Humedad del Suelo", "Temperatura Promedio", "Área Cultivada"],
     )
 
-  # Cargar datos específicos del territorio elegido
   info_region = DATOS_TERRITORIOS[territorio_elegido]
 
   st.markdown("<br>", unsafe_allow_html=True)
-  st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
+  st.markdown(f"### 📊 Datos en Tiempo Real: *{territorio_elegido}*")
 
-  # --- TARJETAS KPI DINÁMICAS ---
+  # --- TARJETAS KPI ---
   k1, k2, k3, k4 = st.columns(4)
   with k1:
     st.markdown(
@@ -286,12 +425,9 @@ if menu == "Inicio & Dashboard":
 
   st.markdown("<br>", unsafe_allow_html=True)
   st.markdown(
-      f"### 🌾 Cultivos Característicos en **{territorio_elegido.split(' ')[0]}**"
+      f"### 🌾 Cultivos Característicos en *{territorio_elegido.split(' ')[0]}*"
   )
 
-
-
-  # --- CULTIVOS DINÁMICOS ---
   c1, c2, c3, c4 = st.columns(4)
   cols = [c1, c2, c3, c4]
 
@@ -300,6 +436,43 @@ if menu == "Inicio & Dashboard":
       with st.container(border=True):
         st.markdown(f"##### {cultivo['nombre']}")
         st.write(cultivo["desc"])
+
+  st.markdown("<br><br>", unsafe_allow_html=True)
+
+  # --- SECCIÓN CONTACTO ---
+  st.markdown(
+      "<p style='color:#a48735; font-weight:800; font-size:12px;"
+      " letter-spacing:2px; text-transform:uppercase;'>Campo Digital"
+      " Colombia</p>",
+      unsafe_allow_html=True,
+  )
+  st.markdown("## Conecta con el proyecto")
+  st.write(
+      "Espacio de contacto para conocer la propuesta y continuar desarrollando"
+      " herramientas digitales para el sector rural."
+  )
+  st.markdown("<br>", unsafe_allow_html=True)
+
+  cc1, cc2 = st.columns(2)
+
+  with cc1:
+    with st.container(border=True):
+      st.markdown("### Correo electrónico")
+      st.write("campodigitalcolombia2@gmail.com")
+      if st.button("Enviar correo"):
+        st.info("Correo de contacto: campodigitalcolombia2@gmail.com")
+
+  with cc2:
+    with st.container(border=True):
+      st.markdown("### Villavicencio, Meta")
+      st.write(
+          "C.D.C. tiene como referencia territorial inicial Villavicencio y el"
+          " departamento del Meta."
+      )
+      st.link_button(
+          "Abrir en Google Maps",
+          "https://www.google.com/maps/place/Villavicencio,+Meta",
+      )
 
 # ==========================================
 # SECCIÓN 2: FORO Y RED SOCIAL AGRO
@@ -311,6 +484,8 @@ elif menu == "💬 Foro y Red Social Agro":
       " aprendices."
   )
 
+  usuarios_registrados = obtener_usuarios_db()
+
   if st.session_state.sesion_activa is None:
     tab_l, tab_r = st.tabs(["Iniciar Sesión", "Registrarse"])
 
@@ -319,12 +494,10 @@ elif menu == "💬 Foro y Red Social Agro":
       pwd = st.text_input("Contraseña", type="password", key="l_pwd")
       if st.button("Entrar", type="primary"):
         if (
-            email in st.session_state.usuarios
-            and st.session_state.usuarios[email]["password"] == pwd
+            email in usuarios_registrados
+            and usuarios_registrados[email]["password"] == pwd
         ):
-          st.session_state.sesion_activa = st.session_state.usuarios[email][
-              "nombre"
-          ]
+          st.session_state.sesion_activa = usuarios_registrados[email]["nombre"]
           st.success("¡Bienvenido!")
           st.rerun()
         else:
@@ -335,20 +508,24 @@ elif menu == "💬 Foro y Red Social Agro":
       r_mail = st.text_input("Correo", key="r_mail")
       r_pwd = st.text_input("Contraseña", type="password", key="r_pwd")
       if st.button("Crear cuenta"):
-        if r_mail in st.session_state.usuarios:
-          st.error("El correo ya existe.")
+        if not r_mail or not r_pwd or not r_nom:
+          st.error("Por favor completa todos los campos.")
+        elif r_mail in usuarios_registrados:
+          st.error("El correo ya se encuentra registrado.")
         else:
-          st.session_state.usuarios[r_mail] = {
-              "password": r_pwd,
-              "nombre": r_nom,
-          }
-          st.session_state.sesion_activa = r_nom
-          st.success("¡Cuenta creada con éxito!")
-          st.rerun()
+          exito = registrar_usuario_db(r_mail, r_pwd, r_nom)
+          if exito:
+            st.session_state.sesion_activa = r_nom
+            st.success(
+                "¡Cuenta creada con éxito y guardada en la base de datos!"
+            )
+            st.rerun()
+          else:
+            st.error("Hubo un error al registrarse en la base de datos.")
   else:
     col_u1, col_u2 = st.columns([3, 1])
     with col_u1:
-      st.info(f"Conectado como: **{st.session_state.sesion_activa}**")
+      st.info(f"Conectado como: *{st.session_state.sesion_activa}*")
     with col_u2:
       if st.button("Cerrar Sesión"):
         st.session_state.sesion_activa = None
@@ -372,145 +549,8 @@ elif menu == "💬 Foro y Red Social Agro":
     st.markdown("#### 📰 Muro de Publicaciones")
     for p in st.session_state.posts:
       with st.container(border=True):
-        st.markdown(f"**{p['avatar']} {p['usuario']}**")
+        st.markdown(f"*{p['avatar']} {p['usuario']}*")
         st.write(p["texto"])
-
-# ==========================================
-# CULTIVOS DE REFERENCIA (Tus tarjetas originales)
-# ==========================================
-st.markdown(
-    "<p style='color:#a48735; font-weight:800; font-size:12px;"
-    " letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p>",
-    unsafe_allow_html=True,
-)
-st.markdown("## Cultivos de referencia")
-st.write(
-    "Información general para organizar variables de clima, suelo, agua y"
-    " producción."
-)
-st.markdown("<br>", unsafe_allow_html=True)
-
-c1, c2, c3, c4 = st.columns(4)
-
-# Tarjeta 1: Maíz
-with c1:
-  with st.container(border=True):
-    st.image(
-        "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600&q=80",
-        use_container_width=True,
-    )
-    st.markdown("### Maíz")
-    st.write(
-        "Cultivo de importancia alimentaria y productiva, adaptable a diferentes"
-        " sistemas agrícolas."
-    )
-    st.markdown("---")
-    sc1, sc2 = st.columns(2)
-    with sc1:
-      st.caption("*Suelo*\nBien drenado")
-      st.caption("*Clima*\nCálido")
-    with sc2:
-      st.caption("*Agua*\nModerada")
-      st.caption("*Uso*\nAlimentación")
-
-# Tarjeta 2: Café
-with c2:
-  with st.container(border=True):
-    st.image(
-        "https://mareterracoffee.com/wp-content/uploads/2022/11/Planta-de-cafe--e1767865783596.png",
-        use_container_width=True,
-    )
-    st.markdown("### Café")
-    st.write(
-        "Sistema productivo asociado a zonas con condiciones climáticas y"
-        " altitudinales particulares."
-    )
-    st.markdown("---")
-    sc1, sc2 = st.columns(2)
-    with sc1:
-      st.caption("*Suelo*\nDrenado")
-      st.caption("*Clima*\nTemplado")
-    with sc2:
-      st.caption("*Agua*\nDisponible")
-      st.caption("*Uso*\nComercial")
-
-# Tarjeta 3: Plátano
-with c3:
-  with st.container(border=True):
-    st.image(
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgrsv2ZUeqLtcPtGEyfsP0h9jNDsZtuHtKwbC_1TyQtQ&s",
-        use_container_width=True,
-    )
-    st.markdown("### Plátano")
-    st.write(
-        "Cultivo tropical que requiere disponibilidad de agua y condiciones"
-        " adecuadas de temperatura."
-    )
-    st.markdown("---")
-    sc1, sc2 = st.columns(2)
-    with sc1:
-      st.caption("*Suelo*\nFértil")
-      st.caption("*Clima*\nTropica")
-    with sc2:
-      st.caption("*Agua*\nAlta")
-      st.caption("*Uso*\nAlimentación")
-
-# Tarjeta 4: Cacao
-with c4:
-  with st.container(border=True):
-    st.image(
-        "https://grandsur.com/wp-content/uploads/2021/02/GrandSur-Our-Products-ASSS.jpg",
-        use_container_width=True,
-    )
-    st.markdown("### Cacao")
-    st.write(
-        "Sistema productivo tropical que requiere condiciones adecuadas de"
-        " humedad, temperatura y suelo."
-    )
-    st.markdown("---")
-    sc1, sc2 = st.columns(2)
-    with sc1:
-      st.caption("*Suelo*\nProfundo")
-      st.caption("*Clima*\nTropica")
-    with sc2:
-      st.caption("*Agua*\nDisponible")
-      st.caption("*Uso*\nComercial")
-
-
-st.markdown("<br><br>", unsafe_allow_html=True)
-
-# ==========================================
-# SECCIÓN CONTACTO ("Conecta con el proyecto")
-# ==========================================
-st.markdown(
-    "<p style='color:#a48735; font-weight:800; font-size:12px;"
-    " letter-spacing:2px; text-transform:uppercase;'>Campo Digital"
-    " Colombia</p>",
-    unsafe_allow_html=True,
-)
-st.markdown("## Conecta con el proyecto")
-st.write(
-    "Espacio de contacto para conocer la propuesta y continuar desarrollando"
-    " herramientas digitales para el sector rural."
-)
-st.markdown("<br>", unsafe_allow_html=True)
-
-cc1, cc2 = st.columns(2)
-#actuelizacion de correo
-with cc1:
-  with st.container(border=True):
-    st.markdown("### Correo electrónico")
-    st.write("campodigitalcolombia2@gmail.com")
-    if st.button("Enviar correo"):
-      st.info("Correo de contacto: campodigitalcolombia2@gmail.com")
-
-with cc2:
-  with st.container(border=True):
-    st.markdown("### Villavicencio, Meta")
-    st.write(
-        "C.D.C. tiene como referencia territorial inicial Villavicencio y el"
-        " departamento del Meta."
-    )
     st.link_button(
         "Abrir en Google Maps",
         "https://www.google.com/maps/place/Villavicencio,+Meta",
