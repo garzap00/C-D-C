@@ -342,7 +342,7 @@ st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
 
   # --- TARJETAS KPI DINÁMICAS ---
 k1, k2, k3, k4 = st.columns(4)
-  with k1:
+with k1:
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -354,7 +354,7 @@ k1, k2, k3, k4 = st.columns(4)
         unsafe_allow_html=True,
     )
 
-  with k2:
+ with k2:
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -366,7 +366,7 @@ k1, k2, k3, k4 = st.columns(4)
         unsafe_allow_html=True,
     )
 
-  with k3:
+with k3:
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -378,7 +378,7 @@ k1, k2, k3, k4 = st.columns(4)
         unsafe_allow_html=True,
     )
 
-  with k4:
+with k4:
     st.markdown(
         f"""
         <div class="kpi-card">
