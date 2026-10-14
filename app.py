@@ -300,81 +300,6 @@ if menu == "Inicio & Dashboard":
       with st.container(border=True):
         st.markdown(f"##### {cultivo['nombre']}")
         st.write(cultivo["desc"])
-
-# ==========================================
-# SECCIÓN 2: FORO Y RED SOCIAL AGRO
-# ==========================================
-elif menu == "💬 Foro y Red Social Agro":
-  st.markdown("## 💬 Comunidad y Foro Agropecuario - C.D.C.")
-  st.write(
-      "Comparte experiencias, reporta datos de cosecha o interactúa con otros"
-      " aprendices."
-  )
-
-  if st.session_state.sesion_activa is None:
-    tab_l, tab_r = st.tabs(["Iniciar Sesión", "Registrarse"])
-
-    with tab_l:
-      email = st.text_input("Correo electrónico", key="l_mail")
-      pwd = st.text_input("Contraseña", type="password", key="l_pwd")
-      if st.button("Entrar", type="primary"):
-        if (
-            email in st.session_state.usuarios
-            and st.session_state.usuarios[email]["password"] == pwd
-        ):
-          st.session_state.sesion_activa = st.session_state.usuarios[email][
-              "nombre"
-          ]
-          st.success("¡Bienvenido!")
-          st.rerun()
-        else:
-          st.error("Datos incorrectos. (Usa: admin@sena.edu.co / 123)")
-
-    with tab_r:
-      r_nom = st.text_input("Nombre completo", key="r_nom")
-      r_mail = st.text_input("Correo", key="r_mail")
-      r_pwd = st.text_input("Contraseña", type="password", key="r_pwd")
-      if st.button("Crear cuenta"):
-        if r_mail in st.session_state.usuarios:
-          st.error("El correo ya existe.")
-        else:
-          st.session_state.usuarios[r_mail] = {
-              "password": r_pwd,
-              "nombre": r_nom,
-          }
-          st.session_state.sesion_activa = r_nom
-          st.success("¡Cuenta creada con éxito!")
-          st.rerun()
-  else:
-    col_u1, col_u2 = st.columns([3, 1])
-    with col_u1:
-      st.info(f"Conectado como: **{st.session_state.sesion_activa}**")
-    with col_u2:
-      if st.button("Cerrar Sesión"):
-        st.session_state.sesion_activa = None
-        st.rerun()
-
-    with st.form("nuevo_post"):
-      texto_foro = st.text_area("¿Qué deseas compartir sobre el campo hoy?")
-      if st.form_submit_button("Publicar en la red"):
-        if texto_foro.strip():
-          st.session_state.posts.insert(
-              0,
-              {
-                  "usuario": st.session_state.sesion_activa,
-                  "avatar": "🧑‍🌾",
-                  "texto": texto_foro,
-              },
-          )
-          st.success("¡Publicado!")
-          st.rerun()
-
-    st.markdown("#### 📰 Muro de Publicaciones")
-    for p in st.session_state.posts:
-      with st.container(border=True):
-        st.markdown(f"**{p['avatar']} {p['usuario']}**")
-        st.write(p["texto"])
-
 # ==========================================
 # CULTIVOS DE REFERENCIA (Tus tarjetas originales)
 # ==========================================
@@ -480,6 +405,82 @@ with c4:
 st.markdown("<br><br>", unsafe_allow_html=True)
 
 # ==========================================
+# SECCIÓN 2: FORO Y RED SOCIAL AGRO
+# ==========================================
+elif menu == "💬 Foro y Red Social Agro":
+  st.markdown("## 💬 Comunidad y Foro Agropecuario - C.D.C.")
+  st.write(
+      "Comparte experiencias, reporta datos de cosecha o interactúa con otros"
+      " aprendices."
+  )
+
+  if st.session_state.sesion_activa is None:
+    tab_l, tab_r = st.tabs(["Iniciar Sesión", "Registrarse"])
+
+    with tab_l:
+      email = st.text_input("Correo electrónico", key="l_mail")
+      pwd = st.text_input("Contraseña", type="password", key="l_pwd")
+      if st.button("Entrar", type="primary"):
+        if (
+            email in st.session_state.usuarios
+            and st.session_state.usuarios[email]["password"] == pwd
+        ):
+          st.session_state.sesion_activa = st.session_state.usuarios[email][
+              "nombre"
+          ]
+          st.success("¡Bienvenido!")
+          st.rerun()
+        else:
+          st.error("Datos incorrectos. (Usa: admin@sena.edu.co / 123)")
+
+    with tab_r:
+      r_nom = st.text_input("Nombre completo", key="r_nom")
+      r_mail = st.text_input("Correo", key="r_mail")
+      r_pwd = st.text_input("Contraseña", type="password", key="r_pwd")
+      if st.button("Crear cuenta"):
+        if r_mail in st.session_state.usuarios:
+          st.error("El correo ya existe.")
+        else:
+          st.session_state.usuarios[r_mail] = {
+              "password": r_pwd,
+              "nombre": r_nom,
+          }
+          st.session_state.sesion_activa = r_nom
+          st.success("¡Cuenta creada con éxito!")
+          st.rerun()
+  else:
+    col_u1, col_u2 = st.columns([3, 1])
+    with col_u1:
+      st.info(f"Conectado como: **{st.session_state.sesion_activa}**")
+    with col_u2:
+      if st.button("Cerrar Sesión"):
+        st.session_state.sesion_activa = None
+        st.rerun()
+
+    with st.form("nuevo_post"):
+      texto_foro = st.text_area("¿Qué deseas compartir sobre el campo hoy?")
+      if st.form_submit_button("Publicar en la red"):
+        if texto_foro.strip():
+          st.session_state.posts.insert(
+              0,
+              {
+                  "usuario": st.session_state.sesion_activa,
+                  "avatar": "🧑‍🌾",
+                  "texto": texto_foro,
+              },
+          )
+          st.success("¡Publicado!")
+          st.rerun()
+
+    st.markdown("#### 📰 Muro de Publicaciones")
+    for p in st.session_state.posts:
+      with st.container(border=True):
+        st.markdown(f"**{p['avatar']} {p['usuario']}**")
+        st.write(p["texto"])
+
+
+
+# ==========================================
 # SECCIÓN CONTACTO ("Conecta con el proyecto")
 # ==========================================
 st.markdown(
@@ -496,7 +497,7 @@ st.write(
 st.markdown("<br>", unsafe_allow_html=True)
 
 cc1, cc2 = st.columns(2)
-#actuelizacion de correo
+
 with cc1:
   with st.container(border=True):
     st.markdown("### Correo electrónico")
@@ -510,6 +511,10 @@ with cc2:
     st.write(
         "C.D.C. tiene como referencia territorial inicial Villavicencio y el"
         " departamento del Meta."
+    )
+    st.link_button(
+        "Abrir en Google Maps",
+        "https://www.google.com/maps/place/Villavicencio,+Meta",
     )
     st.link_button(
         "Abrir en Google Maps",
