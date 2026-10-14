@@ -229,17 +229,17 @@ c1, c2, c3, c4 = st.columns(4)
 # Tarjeta 1: Maíz
 with c1:
     with st.container(border=True):
-    st.image(
-        "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600&q=80",
-        use_container_width=True,
-    )
-    st.markdown("### Maíz")
-    st.write(
-        "Cultivo de importancia alimentaria y productiva, adaptable a diferentes"
-        " sistemas agrícolas."
-    )
-    st.markdown("---")
-    sc1, sc2 = st.columns(2)
+        st.image(
+            "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600&q=80",
+            use_container_width=True,
+        )
+        st.markdown("### Maíz")
+        st.write(
+            "Cultivo de importancia alimentaria y productiva, adaptable a diferentes"
+            " sistemas agrícolas."
+        )
+        st.markdown("---")
+        sc1, sc2 = st.columns(2)
     with sc1:
         st.caption("*Suelo*\nBien drenado")
         st.caption("*Clima*\nCálido")
