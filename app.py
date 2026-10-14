@@ -337,8 +337,8 @@ with col_t3:
   # Cargar datos específicos del territorio elegido
 info_region = DATOS_TERRITORIOS[territorio_elegido]
 
-  st.markdown("<br>", unsafe_allow_html=True)
-  st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
 
   # --- TARJETAS KPI DINÁMICAS ---
   k1, k2, k3, k4 = st.columns(4)
