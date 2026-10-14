@@ -285,7 +285,7 @@ if menu == "Inicio & Dashboard":
       " letter-spacing:2px; text-transform:uppercase;'>Nosotros</p>",
       unsafe_allow_html=True,
   )
-st.markdown("## Regiones")
+    st.markdown("## Regiones")
 
 
 ##################################
