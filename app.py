@@ -317,18 +317,18 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
 col_t1, col_t2, col_t3 = st.columns(3)
 
-  with col_t1:
+with col_t1:
     territorio_elegido = st.selectbox(
         "Departamento / Región", list(DATOS_TERRITORIOS.keys())
     )
 
-  with col_t2:
+with col_t2:
     cultivo_filtro = st.selectbox(
         "Filtrar por Orientación",
-["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"],
+        ["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"],
     )
 
-  with col_t3:
+with col_t3:
     metrica_filtro = st.selectbox(
         "Métrica de Enfoque",
         ["Humedad del Suelo", "Temperatura Promedio", "Área Cultivada"],
