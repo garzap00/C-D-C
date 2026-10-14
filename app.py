@@ -280,6 +280,12 @@ if menu == "Inicio & Dashboard":
   )
 ##################################
 #      ITRODUCCION 
+  st.markdown(
+      "<p style='color:#a48735; font-weight:800; font-size:12px;"
+      " letter-spacing:2px; text-transform:uppercase;'>Nosotros</p>",
+      unsafe_allow_html=True,
+  )
+
 
 ##################################
   # --- CULTIVOS DE REFERENCIA ---
