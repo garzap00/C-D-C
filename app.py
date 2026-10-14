@@ -354,7 +354,7 @@ with k1:
         unsafe_allow_html=True,
     )
 
- with k2:
+with k2:
     st.markdown(
         f"""
         <div class="kpi-card">
