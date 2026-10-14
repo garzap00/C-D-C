@@ -335,7 +335,7 @@ with col_t3:
     )
 
   # Cargar datos específicos del territorio elegido
-  info_region = DATOS_TERRITORIOS[territorio_elegido]
+info_region = DATOS_TERRITORIOS[territorio_elegido]
 
   st.markdown("<br>", unsafe_allow_html=True)
   st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
