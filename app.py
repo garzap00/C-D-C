@@ -390,10 +390,10 @@ with k4:
         unsafe_allow_html=True,
     )
 
-  st.markdown("<br>", unsafe_allow_html=True)
-  st.markdown(
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(
       f"### 🌾 Cultivos Característicos en **{territorio_elegido.split(' ')[0]}**"
-  )
+)
 
 
 
