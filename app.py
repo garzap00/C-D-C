@@ -76,8 +76,9 @@ def registrar_usuario_db(email, password, nombre):
     st.error(f"Detalle técnico del error: {e}")
     return False
 
-
+###############################################
 # --- BASE DE DATOS DINÁMICA POR TERRITORIO ---
+###############################################
 DATOS_TERRITORIOS = {
     "Meta (Altillanura)": {
         "humedad": "72%",
@@ -210,8 +211,9 @@ DATOS_TERRITORIOS = {
         ],
     },
 }
-
+######
 # Inicializar estados de sesión
+######
 if "sesion_activa" not in st.session_state:
   st.session_state.sesion_activa = None
 if "posts" not in st.session_state:
@@ -239,8 +241,9 @@ with col_titulo:
       " Digital Colombia</h2>",
       unsafe_allow_html=True,
   )
-
+#################################################
 # Menú de navegación horizontal debajo del título
+#################################################
 menu = st.radio(
     "Navegación",
     ["Inicio & Dashboard", "💬 Foro y Red Social Agro"],
@@ -249,23 +252,44 @@ menu = st.radio(
 )
 st.divider()
 
-# ==========================================
+###########################################
 # SECCIÓN 1: INICIO & DASHBOARD
-# ==========================================
+###########################################
 if menu == "Inicio & Dashboard":
   st.markdown(
+###########################################      
+#--------primera foto grande fondo---------
+###########################################
       """
     <div class="hero">
-        <span style="border: 1px solid rgba(255,255,255,.3); padding: 5px 12px; border-radius: 20px; font-size: 11px; text-transform: uppercase;">SENA • Proyecto Agropecuario</span>
-        <h1 style="font-size: 38px; margin-top: 15px;">Innovación y Tecnología para el <span style="color:#d1b052;">Campo Colombiano</span></h1>
+        <span style="border: 1px solid rgba(255,255,255,.3); padding: 5px 12px; border-radius: 20px; font-size: 11px; text-transform: uppercase;">
+            SENA • Proyecto Agropecuario
+        </span>
+        <h1 style="font-size: 38px; margin-top: 15px;">
+            Sembramos Conocimiento y 
+            <span style="color:#d1b052;">
+                Sembramos Futuro
+            </span>
+        </h1>
         <p style="font-size: 15px; color: #dce6df; max-width: 700px;">
-            Plataforma digital integral para monitoreo de cultivos, analíticas del agro y conexión directa con productores rurales.
+            Tecología e Infomación Agrícola al Alcance de Quienes Hacen Crecer el Campo Colombiano
         </p>
     </div>
     """,
       unsafe_allow_html=True,
   )
+##################################
+#      ITRODUCCION 
+  st.markdown(
+      "<p style='color:#a48735; font-weight:800; font-size:12px;"
+      " letter-spacing:2px; text-transform:uppercase;'>Nosotros</p>",
+      unsafe_allow_html=True,
+  )
 
+st.markdown("## Regiones")
+st.markdow(
+    ""
+##################################
   # --- CULTIVOS DE REFERENCIA ---
   st.markdown(
       "<p style='color:#a48735; font-weight:800; font-size:12px;"
