@@ -314,7 +314,7 @@ with c4:
 st.markdown("<br><br>", unsafe_allow_html=True)
     
   # --- PANEL DE CONTROL Y FILTROS ---
-  st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
+st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
   col_t1, col_t2, col_t3 = st.columns(3)
 
   with col_t1:
