@@ -496,7 +496,7 @@ st.write(
 st.markdown("<br>", unsafe_allow_html=True)
 
 cc1, cc2 = st.columns(2)
-
+#actuelizacion de correo
 with cc1:
   with st.container(border=True):
     st.markdown("### Correo electrónico")
