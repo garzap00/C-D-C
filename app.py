@@ -4,7 +4,7 @@ from supabase import create_client
 # Configuración inicial de la página
 st.set_page_config(
     page_title="C.D.C. | Campo Digital Colombia",
-    page_icon="https://raw.githubusercontent.com/tu-usuario/tu-repositorio/main/logo.png",
+    page_icon="https://raw.githubusercontent.com/garzap00/c-d-c/main/logo.png",
     layout="wide",
 )
 # Conexión segura a Supabase usando los secretos de Streamlit
