@@ -224,15 +224,28 @@ if "posts" not in st.session_state:
       ),
   }]
 
-# Menú de navegación
-st.markdown("### 🌾 C.D.C. | Campo Digital Colombia")
+# Menú de navegación con tu imagen de logo
+col_logo_menu, col_texto_menu = st.columns([0.06, 0.94])
+
+with col_logo_menu:
+  st.image(
+      "https://raw.githubusercontent.com/garzap00/C-D-C/refs/heads/main/logo.jpeg",
+      width=40,
+  )
+
+with col_texto_menu:
+  st.markdown(
+      "<h3 style='margin: 0; padding-top: 5px;'>C.D.C. | Campo Digital"
+      " Colombia</h3>",
+      unsafe_allow_html=True,
+  )
+
 menu = st.radio(
     "Navegación",
     ["Inicio & Dashboard", "💬 Foro y Red Social Agro"],
     horizontal=True,
     label_visibility="collapsed",
 )
-
 st.divider()
 
 # ==========================================
