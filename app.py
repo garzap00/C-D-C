@@ -28,39 +28,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-
-
-# --- BASE DE DATOS…
-[8:26 a. m., 14/10/2026] Gabriel garzón: import streamlit as st
-
-# Configuración inicial de la página
-st.set_page_config(
-    page_title="C.D.C. | Campo Digital Colombia", page_icon="🌾", layout="wide"
-)
-
-# Estilos CSS
-st.markdown(
-    """
-    <style>
-    .hero {
-        background: linear-gradient(rgba(9,31,21,.70),rgba(9,31,21,.84)), url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85") center/cover;
-        padding: 50px 30px;
-        border-radius: 15px;
-        color: white;
-        margin-bottom: 20px;
-    }
-    .kpi-card {
-        background-color: #f7f8f5;
-        border: 1px solid #e0e5df;
-        padding: 20px;
-        border-radius: 12px;
-        text-align: center;
-    }
-    </style>
-""",
-    unsafe_allow_html=True,
-)
-
 # --- BASE DE DATOS DINÁMICA POR TERRITORIO ---
 DATOS_TERRITORIOS = {
     "Meta (Altillanura)": {
@@ -543,7 +510,6 @@ elif menu == "💬 Foro y Red Social Agro":
       with st.container(border=True):
         st.markdown(f"*{p['avatar']} {p['usuario']}*")
         st.write(p["texto"])
-    st.link_button(
         "Abrir en Google Maps",
         "https://www.google.com/maps/place/Villavicencio,+Meta",
     )
