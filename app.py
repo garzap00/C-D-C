@@ -1,4 +1,4 @@
-[8:19 a. m., 14/10/2026] Gabriel garzón: mport streamlit as st
+import streamlit as st
 
 # Configuración inicial de la página
 st.set_page_config(
