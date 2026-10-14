@@ -500,7 +500,7 @@ cc1, cc2 = st.columns(2)
 with cc1:
   with st.container(border=True):
     st.markdown("### Correo electrónico")
-    st.write("campodigitalcolombia@gmail.com")
+    st.write("campodigitalcolombia2@gmail.com")
     if st.button("Enviar correo"):
       st.info("Correo de contacto: campodigitalcolombia2@gmail.com")
 
