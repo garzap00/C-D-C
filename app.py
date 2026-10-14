@@ -513,7 +513,7 @@ elif menu == "💬 Foro y Red Social Agro":
         elif r_mail in usuarios_registrados:
           st.error("El correo ya se encuentra registrado.")
         else:
-          exito = registrar_usuario_db(r_mail, r_pwd, r_nom)
+          exito = registrar_usuario_db(r_mail, r_nom, r_pwd)
           if exito:
             st.session_state.sesion_activa = r_nom
             st.success(
