@@ -286,7 +286,7 @@ st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-sp
   # --- CULTIVOS DE REFERENCIA ---
 st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p><h2>Cultivos de referencia</h2>", unsafe_allow_html=True)
 
-  c1, c2, c3, c4 = st.columns(4)
+c1, c2, c3, c4 = st.columns(4)
 
   with c1:
     with st.container(border=True):
