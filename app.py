@@ -512,4 +512,4 @@ elif menu == "💬 Foro y Red Social Agro":
         st.write(p["texto"])
         "Abrir en Google Maps",
         "https://www.google.com/maps/place/Villavicencio,+Meta",
-    )
+    
