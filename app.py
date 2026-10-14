@@ -502,7 +502,7 @@ with cc1:
     st.markdown("### Correo electrónico")
     st.write("campodigitalcolombia@gmail.com")
     if st.button("Enviar correo"):
-      st.info("Correo de contacto: campodigitalcolombia@gmail.com")
+      st.info("Correo de contacto: campodigitalcolombia2@gmail.com")
 
 with cc2:
   with st.container(border=True):
