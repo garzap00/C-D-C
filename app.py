@@ -65,14 +65,14 @@ def obtener_usuarios_db():
 
 def registrar_usuario_db(email, password, nombre):
   try:
-    supabase.table("usuarios").insert({
-        "r_mail": email,
-        "r_pwd": password,
-        "r_nom": nombre,
-    }).execute()
+    response = (
+        supabase.table("usuarios")
+        .insert({"r_mail": email, "r_pwd": password, "r_nom": nombre})
+        .execute()
+    )
     return True
   except Exception as e:
-    print(f"Error: {e}")
+    st.error(f"Detalle técnico del error: {e}")
     return False
 
 
