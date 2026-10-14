@@ -235,7 +235,7 @@ with col_logo:
 
 with col_titulo:
   st.markdown(
-      "<h2 style='margin: 0; padding-top: 2px; color: #10271c;'>C.D.C. | Campo"
+      "<h2 style='margin: 0; padding-top: 2px; color: #8fc148;'>C.D.C. | Campo"
       " Digital Colombia</h2>",
       unsafe_allow_html=True,
   )
