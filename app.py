@@ -212,106 +212,106 @@ if menu == "Inicio & Dashboard":
 # ==========================================
 # CULTIVOS DE REFERENCIA (Tus tarjetas originales)
 # ==========================================
-    st.markdown(
-        "<p style='color:#a48735; font-weight:800; font-size:12px;"
-        " letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p>",
-        unsafe_allow_html=True,
-    )
-    st.markdown("## Cultivos de referencia")
-    st.write(
-        "Información general para organizar variables de clima, suelo, agua y"
-        " producción."
-    )
-    st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(
+    "<p style='color:#a48735; font-weight:800; font-size:12px;"
+    " letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p>",
+    unsafe_allow_html=True,
+)
+st.markdown("## Cultivos de referencia")
+st.write(
+    "Información general para organizar variables de clima, suelo, agua y"
+    " producción."
+)
+st.markdown("<br>", unsafe_allow_html=True)
 
-    c1, c2, c3, c4 = st.columns(4)
+c1, c2, c3, c4 = st.columns(4)
 
 # Tarjeta 1: Maíz
-    with c1:
-      with st.container(border=True):
-        st.image(
-            "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600&q=80",
-            use_container_width=True,
-        )
-        st.markdown("### Maíz")
-        st.write(
-            "Cultivo de importancia alimentaria y productiva, adaptable a diferentes"
-            " sistemas agrícolas."
-        )
-        st.markdown("---")
-        sc1, sc2 = st.columns(2)
-        with sc1:
-          st.caption("*Suelo*\nBien drenado")
-          st.caption("*Clima*\nCálido")
-        with sc2:
-          st.caption("*Agua*\nModerada")
-          st.caption("*Uso*\nAlimentación")
+with c1:
+    with st.container(border=True):
+    st.image(
+        "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600&q=80",
+        use_container_width=True,
+    )
+    st.markdown("### Maíz")
+    st.write(
+        "Cultivo de importancia alimentaria y productiva, adaptable a diferentes"
+        " sistemas agrícolas."
+    )
+    st.markdown("---")
+    sc1, sc2 = st.columns(2)
+    with sc1:
+        st.caption("*Suelo*\nBien drenado")
+        st.caption("*Clima*\nCálido")
+    with sc2:
+        st.caption("*Agua*\nModerada")
+        st.caption("*Uso*\nAlimentación")
 
 # Tarjeta 2: Café
-    with c2:
-      with st.container(border=True):
-        st.image(
+with c2:
+    with st.container(border=True):
+    st.image(
             "https://mareterracoffee.com/wp-content/uploads/2022/11/Planta-de-cafe--e1767865783596.png",
             use_container_width=True,
-        )
-        st.markdown("### Café")
-        st.write(
-            "Sistema productivo asociado a zonas con condiciones climáticas y"
-            " altitudinales particulares."
-        )
-        st.markdown("---")
-        sc1, sc2 = st.columns(2)
-        with sc1:
-          st.caption("*Suelo*\nDrenado")
-          st.caption("*Clima*\nTemplado")
-        with sc2:
-          st.caption("*Agua*\nDisponible")
-          st.caption("*Uso*\nComercial")
+    )
+    st.markdown("### Café")
+    st.write(
+        "Sistema productivo asociado a zonas con condiciones climáticas y"
+        " altitudinales particulares."
+    )
+    st.markdown("---")
+    sc1, sc2 = st.columns(2)
+    with sc1:
+        st.caption("*Suelo*\nDrenado")
+        st.caption("*Clima*\nTemplado")
+    with sc2:
+        st.caption("*Agua*\nDisponible")
+        st.caption("*Uso*\nComercial")
 
 # Tarjeta 3: Plátano
-    with c3:
-      with st.container(border=True):
-        st.image(
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgrsv2ZUeqLtcPtGEyfsP0h9jNDsZtuHtKwbC_1TyQtQ&s",
-            use_container_width=True,
-        )
-        st.markdown("### Plátano")
-        st.write(
-            "Cultivo tropical que requiere disponibilidad de agua y condiciones"
-            " adecuadas de temperatura."
-        )
-        st.markdown("---")
-        sc1, sc2 = st.columns(2)
-        with sc1:
-          st.caption("*Suelo*\nFértil")
-          st.caption("*Clima*\nTropica")
-        with sc2:
-          st.caption("*Agua*\nAlta")
-          st.caption("*Uso*\nAlimentación")
+with c3:
+    with st.container(border=True):
+    st.image(
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgrsv2ZUeqLtcPtGEyfsP0h9jNDsZtuHtKwbC_1TyQtQ&s",
+        use_container_width=True,
+    )
+    st.markdown("### Plátano")
+    st.write(
+        "Cultivo tropical que requiere disponibilidad de agua y condiciones"
+        " adecuadas de temperatura."
+    )
+    st.markdown("---")
+    sc1, sc2 = st.columns(2)
+    with sc1:
+        st.caption("*Suelo*\nFértil")
+        st.caption("*Clima*\nTropica")
+    with sc2:
+        st.caption("*Agua*\nAlta")
+        st.caption("*Uso*\nAlimentación")
 
 # Tarjeta 4: Cacao
-    with c4:
-      with st.container(border=True):
-        st.image(
-            "https://grandsur.com/wp-content/uploads/2021/02/GrandSur-Our-Products-ASSS.jpg",
-            use_container_width=True,
-        )
-        st.markdown("### Cacao")
-        st.write(
-            "Sistema productivo tropical que requiere condiciones adecuadas de"
-            " humedad, temperatura y suelo."
-        )
-        st.markdown("---")
-        sc1, sc2 = st.columns(2)
-        with sc1:
-          st.caption("*Suelo*\nProfundo")
-          st.caption("*Clima*\nTropica")
-        with sc2:
-          st.caption("*Agua*\nDisponible")
-          st.caption("*Uso*\nComercial")
+with c4:
+    with st.container(border=True):
+    st.image(
+        "https://grandsur.com/wp-content/uploads/2021/02/GrandSur-Our-Products-ASSS.jpg",
+        use_container_width=True,
+    )
+    st.markdown("### Cacao")
+    st.write(
+        "Sistema productivo tropical que requiere condiciones adecuadas de"
+        " humedad, temperatura y suelo."
+    )
+    st.markdown("---")
+    sc1, sc2 = st.columns(2)
+    with sc1:
+        st.caption("*Suelo*\nProfundo")
+        st.caption("*Clima*\nTropica")
+    with sc2:
+        st.caption("*Agua*\nDisponible")
+        st.caption("*Uso*\nComercial")
 
 
-    st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
     
   # --- PANEL DE CONTROL Y FILTROS ---
   st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
