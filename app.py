@@ -224,22 +224,23 @@ if "posts" not in st.session_state:
       ),
   }]
 
-# Menú de navegación con tu imagen de logo
-col_logo_menu, col_texto_menu = st.columns([0.06, 0.94])
+# Contenedor para el logo y el título alineados horizontalmente
+col_logo, col_titulo = st.columns([0.07, 0.93])
 
-with col_logo_menu:
+with col_logo:
   st.image(
       "https://raw.githubusercontent.com/garzap00/C-D-C/refs/heads/main/logo.jpeg",
-      width=40,
+      width=45,
   )
 
-with col_texto_menu:
+with col_titulo:
   st.markdown(
-      "<h3 style='margin: 0; padding-top: 5px;'>C.D.C. | Campo Digital"
-      " Colombia</h3>",
+      "<h2 style='margin: 0; padding-top: 2px; color: #10271c;'>C.D.C. | Campo"
+      " Digital Colombia</h2>",
       unsafe_allow_html=True,
   )
 
+# Menú de navegación horizontal debajo del título
 menu = st.radio(
     "Navegación",
     ["Inicio & Dashboard", "💬 Foro y Red Social Agro"],
