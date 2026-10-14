@@ -239,7 +239,7 @@ with c1:
             " sistemas agrícolas."
         )
         st.markdown("---")
-        sc1, sc2 = st.columns(2)
+    sc1, sc2 = st.columns(2)
     with sc1:
         st.caption("*Suelo*\nBien drenado")
         st.caption("*Clima*\nCálido")
@@ -250,16 +250,16 @@ with c1:
 # Tarjeta 2: Café
 with c2:
     with st.container(border=True):
-    st.image(
+        st.image(
             "https://mareterracoffee.com/wp-content/uploads/2022/11/Planta-de-cafe--e1767865783596.png",
             use_container_width=True,
-    )
-    st.markdown("### Café")
-    st.write(
-        "Sistema productivo asociado a zonas con condiciones climáticas y"
-        " altitudinales particulares."
-    )
-    st.markdown("---")
+        )
+        st.markdown("### Café")
+        st.write(
+            "Sistema productivo asociado a zonas con condiciones climáticas y"
+            " altitudinales particulares."
+        )
+        st.markdown("---")
     sc1, sc2 = st.columns(2)
     with sc1:
         st.caption("*Suelo*\nDrenado")
@@ -271,16 +271,16 @@ with c2:
 # Tarjeta 3: Plátano
 with c3:
     with st.container(border=True):
-    st.image(
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgrsv2ZUeqLtcPtGEyfsP0h9jNDsZtuHtKwbC_1TyQtQ&s",
-        use_container_width=True,
-    )
-    st.markdown("### Plátano")
-    st.write(
-        "Cultivo tropical que requiere disponibilidad de agua y condiciones"
-        " adecuadas de temperatura."
-    )
-    st.markdown("---")
+        st.image(
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgrsv2ZUeqLtcPtGEyfsP0h9jNDsZtuHtKwbC_1TyQtQ&s",
+            use_container_width=True,
+        )
+        st.markdown("### Plátano")
+        st.write(
+            "Cultivo tropical que requiere disponibilidad de agua y condiciones"
+            " adecuadas de temperatura."
+        )
+        st.markdown("---")
     sc1, sc2 = st.columns(2)
     with sc1:
         st.caption("*Suelo*\nFértil")
@@ -292,16 +292,16 @@ with c3:
 # Tarjeta 4: Cacao
 with c4:
     with st.container(border=True):
-    st.image(
-        "https://grandsur.com/wp-content/uploads/2021/02/GrandSur-Our-Products-ASSS.jpg",
-        use_container_width=True,
-    )
-    st.markdown("### Cacao")
-    st.write(
-        "Sistema productivo tropical que requiere condiciones adecuadas de"
-        " humedad, temperatura y suelo."
-    )
-    st.markdown("---")
+        st.image(
+            "https://grandsur.com/wp-content/uploads/2021/02/GrandSur-Our-Products-ASSS.jpg",
+            use_container_width=True,
+        )
+        st.markdown("### Cacao")
+        st.write(
+            "Sistema productivo tropical que requiere condiciones adecuadas de"
+            " humedad, temperatura y suelo."
+        )
+        st.markdown("---")
     sc1, sc2 = st.columns(2)
     with sc1:
         st.caption("*Suelo*\nProfundo")
