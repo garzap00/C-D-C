@@ -398,8 +398,8 @@ st.markdown(
 
 
   # --- CULTIVOS DINÁMICOS ---
-  c1, c2, c3, c4 = st.columns(4)
-  cols = [c1, c2, c3, c4]
+c1, c2, c3, c4 = st.columns(4)
+cols = [c1, c2, c3, c4]
 
   for index, cultivo in enumerate(info_region["cultivos"]):
     with cols[index]:
