@@ -1,4 +1,4 @@
-import streamlit as st
+[8:19 a. m., 14/10/2026] Gabriel garzón: mport streamlit as st
 
 # Configuración inicial de la página
 st.set_page_config(
@@ -29,6 +29,37 @@ st.markdown(
 )
 
 
+
+# --- BASE DE DATOS…
+[8:26 a. m., 14/10/2026] Gabriel garzón: import streamlit as st
+
+# Configuración inicial de la página
+st.set_page_config(
+    page_title="C.D.C. | Campo Digital Colombia", page_icon="🌾", layout="wide"
+)
+
+# Estilos CSS
+st.markdown(
+    """
+    <style>
+    .hero {
+        background: linear-gradient(rgba(9,31,21,.70),rgba(9,31,21,.84)), url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85") center/cover;
+        padding: 50px 30px;
+        border-radius: 15px;
+        color: white;
+        margin-bottom: 20px;
+    }
+    .kpi-card {
+        background-color: #f7f8f5;
+        border: 1px solid #e0e5df;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+    }
+    </style>
+""",
+    unsafe_allow_html=True,
+)
 
 # --- BASE DE DATOS DINÁMICA POR TERRITORIO ---
 DATOS_TERRITORIOS = {
@@ -209,140 +240,137 @@ if menu == "Inicio & Dashboard":
       unsafe_allow_html=True,
   )
 
-# ==========================================
-# CULTIVOS DE REFERENCIA (Tus tarjetas originales)
-# ==========================================
-st.markdown(
-    "<p style='color:#a48735; font-weight:800; font-size:12px;"
-    " letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p>",
-    unsafe_allow_html=True,
-)
-st.markdown("## Cultivos de referencia")
-st.write(
-    "Información general para organizar variables de clima, suelo, agua y"
-    " producción."
-)
-st.markdown("<br>", unsafe_allow_html=True)
+  # --- CULTIVOS DE REFERENCIA (BIEN INDENTADOS) ---
+  st.markdown(
+      "<p style='color:#a48735; font-weight:800; font-size:12px;"
+      " letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p>",
+      unsafe_allow_html=True,
+  )
+  st.markdown("## Cultivos de referencia")
+  st.write(
+      "Información general para organizar variables de clima, suelo, agua y"
+      " producción."
+  )
+  st.markdown("<br>", unsafe_allow_html=True)
 
-c1, c2, c3, c4 = st.columns(4)
+  c1, c2, c3, c4 = st.columns(4)
 
-# Tarjeta 1: Maíz
-with c1:
+  # Tarjeta 1: Maíz
+  with c1:
     with st.container(border=True):
-        st.image(
-            "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600&q=80",
-            use_container_width=True,
-        )
-        st.markdown("### Maíz")
-        st.write(
-            "Cultivo de importancia alimentaria y productiva, adaptable a diferentes"
-            " sistemas agrícolas."
-        )
-        st.markdown("---")
-    sc1, sc2 = st.columns(2)
-    with sc1:
-        st.caption("*Suelo*\nBien drenado")
-        st.caption("*Clima*\nCálido")
-    with sc2:
-        st.caption("*Agua*\nModerada")
-        st.caption("*Uso*\nAlimentación")
+      st.image(
+          "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600&q=80",
+          use_container_width=True,
+      )
+      st.markdown("### Maíz")
+      st.write(
+          "Cultivo de importancia alimentaria y productiva, adaptable a"
+          " diferentes sistemas agrícolas."
+      )
+      st.markdown("---")
+      sc1, sc2 = st.columns(2)
+      with sc1:
+        st.caption("Suelo\nBien drenado")
+        st.caption("Clima\nCálido")
+      with sc2:
+        st.caption("Agua\nModerada")
+        st.caption("Uso\nAlimentación")
 
-# Tarjeta 2: Café
-with c2:
+  # Tarjeta 2: Café
+  with c2:
     with st.container(border=True):
-        st.image(
-            "https://mareterracoffee.com/wp-content/uploads/2022/11/Planta-de-cafe--e1767865783596.png",
-            use_container_width=True,
-        )
-        st.markdown("### Café")
-        st.write(
-            "Sistema productivo asociado a zonas con condiciones climáticas y"
-            " altitudinales particulares."
-        )
-        st.markdown("---")
-    sc1, sc2 = st.columns(2)
-    with sc1:
-        st.caption("*Suelo*\nDrenado")
-        st.caption("*Clima*\nTemplado")
-    with sc2:
-        st.caption("*Agua*\nDisponible")
-        st.caption("*Uso*\nComercial")
+      st.image(
+          "https://mareterracoffee.com/wp-content/uploads/2022/11/Planta-de-cafe--e1767865783596.png",
+          use_container_width=True,
+      )
+      st.markdown("### Café")
+      st.write(
+          "Sistema productivo asociado a zonas con condiciones climáticas y"
+          " altitudinales particulares."
+      )
+      st.markdown("---")
+      sc1, sc2 = st.columns(2)
+      with sc1:
+        st.caption("Suelo\nDrenado")
+        st.caption("Clima\nTemplado")
+      with sc2:
+        st.caption("Agua\nDisponible")
+        st.caption("Uso\nComercial")
 
-# Tarjeta 3: Plátano
-with c3:
+  # Tarjeta 3: Plátano
+  with c3:
     with st.container(border=True):
-        st.image(
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgrsv2ZUeqLtcPtGEyfsP0h9jNDsZtuHtKwbC_1TyQtQ&s",
-            use_container_width=True,
-        )
-        st.markdown("### Plátano")
-        st.write(
-            "Cultivo tropical que requiere disponibilidad de agua y condiciones"
-            " adecuadas de temperatura."
-        )
-        st.markdown("---")
-    sc1, sc2 = st.columns(2)
-    with sc1:
-        st.caption("*Suelo*\nFértil")
-        st.caption("*Clima*\nTropica")
-    with sc2:
-        st.caption("*Agua*\nAlta")
-        st.caption("*Uso*\nAlimentación")
+      st.image(
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgrsv2ZUeqLtcPtGEyfsP0h9jNDsZtuHtKwbC_1TyQtQ&s",
+          use_container_width=True,
+      )
+      st.markdown("### Plátano")
+      st.write(
+          "Cultivo tropical que requiere disponibilidad de agua y condiciones"
+          " adecuadas de temperatura."
+      )
+      st.markdown("---")
+      sc1, sc2 = st.columns(2)
+      with sc1:
+        st.caption("Suelo\nFértil")
+        st.caption("Clima\nTropica")
+      with sc2:
+        st.caption("Agua\nAlta")
+        st.caption("Uso\nAlimentación")
 
-# Tarjeta 4: Cacao
-with c4:
+  # Tarjeta 4: Cacao
+  with c4:
     with st.container(border=True):
-        st.image(
-            "https://grandsur.com/wp-content/uploads/2021/02/GrandSur-Our-Products-ASSS.jpg",
-            use_container_width=True,
-        )
-        st.markdown("### Cacao")
-        st.write(
-            "Sistema productivo tropical que requiere condiciones adecuadas de"
-            " humedad, temperatura y suelo."
-        )
-        st.markdown("---")
-    sc1, sc2 = st.columns(2)
-    with sc1:
-        st.caption("*Suelo*\nProfundo")
-        st.caption("*Clima*\nTropica")
-    with sc2:
-        st.caption("*Agua*\nDisponible")
-        st.caption("*Uso*\nComercial")
+      st.image(
+          "https://grandsur.com/wp-content/uploads/2021/02/GrandSur-Our-Products-ASSS.jpg",
+          use_container_width=True,
+      )
+      st.markdown("### Cacao")
+      st.write(
+          "Sistema productivo tropical que requiere condiciones adecuadas de"
+          " humedad, temperatura y suelo."
+      )
+      st.markdown("---")
+      sc1, sc2 = st.columns(2)
+      with sc1:
+        st.caption("Suelo\nProfundo")
+        st.caption("Clima\nTropica")
+      with sc2:
+        st.caption("Agua\nDisponible")
+        st.caption("Uso\nComercial")
 
+  st.markdown("<br><br>", unsafe_allow_html=True)
 
-st.markdown("<br><br>", unsafe_allow_html=True)
-    
   # --- PANEL DE CONTROL Y FILTROS ---
-st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
-col_t1, col_t2, col_t3 = st.columns(3)
+  st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
+  col_t1, col_t2, col_t3 = st.columns(3)
 
-with col_t1:
+  with col_t1:
     territorio_elegido = st.selectbox(
         "Departamento / Región", list(DATOS_TERRITORIOS.keys())
     )
 
-with col_t2:
+  with col_t2:
     cultivo_filtro = st.selectbox(
         "Filtrar por Orientación",
         ["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"],
     )
 
-with col_t3:
+  with col_t3:
     metrica_filtro = st.selectbox(
         "Métrica de Enfoque",
         ["Humedad del Suelo", "Temperatura Promedio", "Área Cultivada"],
     )
 
   # Cargar datos específicos del territorio elegido
-info_region = DATOS_TERRITORIOS[territorio_elegido]
+  info_region = DATOS_TERRITORIOS[territorio_elegido]
 
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown(f"### 📊 Datos en Tiempo Real: **{territorio_elegido}**")
+  st.markdown("<br>", unsafe_allow_html=True)
+  st.markdown(f"### 📊 Datos en Tiempo Real: *{territorio_elegido}*")
 
   # --- TARJETAS KPI DINÁMICAS ---
-k1, k2, k3, k4 = st.columns(4)
-with k1:
+  k1, k2, k3, k4 = st.columns(4)
+  with k1:
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -354,7 +382,7 @@ with k1:
         unsafe_allow_html=True,
     )
 
-with k2:
+  with k2:
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -366,7 +394,7 @@ with k2:
         unsafe_allow_html=True,
     )
 
-with k3:
+  with k3:
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -378,7 +406,7 @@ with k3:
         unsafe_allow_html=True,
     )
 
-with k4:
+  with k4:
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -390,23 +418,57 @@ with k4:
         unsafe_allow_html=True,
     )
 
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown(
-      f"### 🌾 Cultivos Característicos en **{territorio_elegido.split(' ')[0]}**"
-)
-
-
+  st.markdown("<br>", unsafe_allow_html=True)
+  st.markdown(
+      f"### 🌾 Cultivos Característicos en *{territorio_elegido.split(' ')[0]}*"
+  )
 
   # --- CULTIVOS DINÁMICOS ---
-c1, c2, c3, c4 = st.columns(4)
-cols = [c1, c2, c3, c4]
+  c1, c2, c3, c4 = st.columns(4)
+  cols = [c1, c2, c3, c4]
 
-for index, cultivo in enumerate(info_region["cultivos"]):
-        with cols[index]:
-            with st.container(border=True):
-                st.markdown(f"##### {cultivo['nombre']}")
-                st.write(cultivo["desc"])
+  for index, cultivo in enumerate(info_region["cultivos"]):
+    with cols[index]:
+      with st.container(border=True):
+        st.markdown(f"##### {cultivo['nombre']}")
+        st.write(cultivo["desc"])
 
+  st.markdown("<br><br>", unsafe_allow_html=True)
+
+  # --- SECCIÓN CONTACTO ---
+  st.markdown(
+      "<p style='color:#a48735; font-weight:800; font-size:12px;"
+      " letter-spacing:2px; text-transform:uppercase;'>Campo Digital"
+      " Colombia</p>",
+      unsafe_allow_html=True,
+  )
+  st.markdown("## Conecta con el proyecto")
+  st.write(
+      "Espacio de contacto para conocer la propuesta y continuar desarrollando"
+      " herramientas digitales para el sector rural."
+  )
+  st.markdown("<br>", unsafe_allow_html=True)
+
+  cc1, cc2 = st.columns(2)
+
+  with cc1:
+    with st.container(border=True):
+      st.markdown("### Correo electrónico")
+      st.write("campodigitalcolombia2@gmail.com")
+      if st.button("Enviar correo"):
+        st.info("Correo de contacto: campodigitalcolombia2@gmail.com")
+
+  with cc2:
+    with st.container(border=True):
+      st.markdown("### Villavicencio, Meta")
+      st.write(
+          "C.D.C. tiene como referencia territorial inicial Villavicencio y el"
+          " departamento del Meta."
+      )
+      st.link_button(
+          "Abrir en Google Maps",
+          "https://www.google.com/maps/place/Villavicencio,+Meta",
+      )
 
 # ==========================================
 # SECCIÓN 2: FORO Y RED SOCIAL AGRO
@@ -455,7 +517,7 @@ elif menu == "💬 Foro y Red Social Agro":
   else:
     col_u1, col_u2 = st.columns([3, 1])
     with col_u1:
-      st.info(f"Conectado como: **{st.session_state.sesion_activa}**")
+      st.info(f"Conectado como: *{st.session_state.sesion_activa}*")
     with col_u2:
       if st.button("Cerrar Sesión"):
         st.session_state.sesion_activa = None
@@ -479,47 +541,8 @@ elif menu == "💬 Foro y Red Social Agro":
     st.markdown("#### 📰 Muro de Publicaciones")
     for p in st.session_state.posts:
       with st.container(border=True):
-        st.markdown(f"**{p['avatar']} {p['usuario']}**")
+        st.markdown(f"*{p['avatar']} {p['usuario']}*")
         st.write(p["texto"])
-
-
-
-# ==========================================
-# SECCIÓN CONTACTO ("Conecta con el proyecto")
-# ==========================================
-st.markdown(
-    "<p style='color:#a48735; font-weight:800; font-size:12px;"
-    " letter-spacing:2px; text-transform:uppercase;'>Campo Digital"
-    " Colombia</p>",
-    unsafe_allow_html=True,
-)
-st.markdown("## Conecta con el proyecto")
-st.write(
-    "Espacio de contacto para conocer la propuesta y continuar desarrollando"
-    " herramientas digitales para el sector rural."
-)
-st.markdown("<br>", unsafe_allow_html=True)
-
-cc1, cc2 = st.columns(2)
-
-with cc1:
-  with st.container(border=True):
-    st.markdown("### Correo electrónico")
-    st.write("campodigitalcolombia2@gmail.com")
-    if st.button("Enviar correo"):
-      st.info("Correo de contacto: campodigitalcolombia2@gmail.com")
-
-with cc2:
-  with st.container(border=True):
-    st.markdown("### Villavicencio, Meta")
-    st.write(
-        "C.D.C. tiene como referencia territorial inicial Villavicencio y el"
-        " departamento del Meta."
-    )
-    st.link_button(
-        "Abrir en Google Maps",
-        "https://www.google.com/maps/place/Villavicencio,+Meta",
-    )
     st.link_button(
         "Abrir en Google Maps",
         "https://www.google.com/maps/place/Villavicencio,+Meta",
