@@ -210,7 +210,7 @@ if menu == "Inicio & Dashboard":
 
     with c1:
         with st.container(border=True):
-            st.markdown("<h3>Región Caribe</h3>")
+            st.markdown("<h3>Región Caribe</h3>", unsafe_allow_html=True)
     # Cultivos de referencia
     st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p><h2>Cultivos de referencia</h2>", unsafe_allow_html=True)
 
