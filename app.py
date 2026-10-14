@@ -325,7 +325,7 @@ col_t1, col_t2, col_t3 = st.columns(3)
   with col_t2:
     cultivo_filtro = st.selectbox(
         "Filtrar por Orientación",
-    ["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"],
+["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"],
     )
 
   with col_t3:
