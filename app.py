@@ -45,14 +45,12 @@ def obtener_usuarios_db():
   try:
     response = supabase.table("usuarios").select("*").execute()
     data = response.data
-    # Convertimos la lista de Supabase en un diccionario para mantener la compatibilidad del login
     usuarios_dict = {}
     for row in data:
-      usuarios_dict[row["correo"]] = {
-          "password": row["password"],
-          "nombre": row["nombre"],
+      usuarios_dict[row["r_mail"]] = {
+          "password": row["r_pwd"],
+          "nombre": row["r_nom"],
       }
-    # Asegurar que el admin por defecto siempre exista
     if "admin@sena.edu.co" not in usuarios_dict:
       usuarios_dict["admin@sena.edu.co"] = {
           "password": "123",
@@ -67,11 +65,14 @@ def obtener_usuarios_db():
 
 def registrar_usuario_db(email, password, nombre):
   try:
-    supabase.table("usuarios").insert(
-        {"correo": email, "password": password, "nombre": nombre}
-    ).execute()
+    supabase.table("usuarios").insert({
+        "r_mail": email,
+        "r_pwd": password,
+        "r_nom": nombre,
+    }).execute()
     return True
-  except Exception:
+  except Exception as e:
+    print(f"Error: {e}")
     return False
 
 
@@ -477,47 +478,55 @@ if menu == "Inicio & Dashboard":
 # ==========================================
 # SECCIÓN 2: FORO Y RED SOCIAL AGRO
 # ==========================================
-# --- FUNCIONES DE USUARIOS CON SUPABASE ---
-def obtener_usuarios_db():
-  try:
-    response = supabase.table("usuarios").select("*").execute()
-    data = response.data
-    usuarios_dict = {}
-    for row in data:
-      # Mapeamos usando los nombres reales de tus columnas en Supabase
-      usuarios_dict[row["r_mail"]] = {
-          "password": row["r_pwd"],
-          "nombre": row["r_nom"],
-      }
-    # Asegurar que el admin por defecto siempre exista
-    if "admin@sena.edu.co" not in usuarios_dict:
-      usuarios_dict["admin@sena.edu.co"] = {
-          "password": "123",
-          "nombre": "Aprendiz SENA",
-      }
-    return usuarios_dict
-  except Exception:
-    return {
-        "admin@sena.edu.co": {"password": "123", "nombre": "Aprendiz SENA"}
-    }
+elif menu == "💬 Foro y Red Social Agro":
+  st.markdown("## 💬 Comunidad y Foro Agropecuario - C.D.C.")
+  st.write(
+      "Comparte experiencias, reporta datos de cosecha o interactúa con otros"
+      " aprendices."
+  )
 
+  usuarios_registrados = obtener_usuarios_db()
 
-def registrar_usuario_db(email, password, nombre):
-  try:
-    # Enviamos los datos usando exactamente los nombres de columnas de tu foto
-    supabase.table("usuarios").insert({
-        "r_mail": email,
-        "r_pwd": password,
-        "r_nom": nombre,
-    }).execute()
-    return True
-  except Exception as e:
-    print(f"Error: {e}")
-    return False
+  if st.session_state.sesion_activa is None:
+    tab_l, tab_r = st.tabs(["Iniciar Sesión", "Registrarse"])
+
+    with tab_l:
+      email = st.text_input("Correo electrónico", key="l_mail")
+      pwd = st.text_input("Contraseña", type="password", key="l_pwd")
+      if st.button("Entrar", type="primary"):
+        if (
+            email in usuarios_registrados
+            and usuarios_registrados[email]["password"] == pwd
+        ):
+          st.session_state.sesion_activa = usuarios_registrados[email]["nombre"]
+          st.success("¡Bienvenido!")
+          st.rerun()
+        else:
+          st.error("Datos incorrectos. (Usa: admin@sena.edu.co / 123)")
+
+    with tab_r:
+      r_nom = st.text_input("Nombre completo", key="r_nom")
+      r_mail = st.text_input("Correo", key="r_mail")
+      r_pwd = st.text_input("Contraseña", type="password", key="r_pwd")
+      if st.button("Crear cuenta"):
+        if not r_mail or not r_pwd or not r_nom:
+          st.error("Por favor completa todos los campos.")
+        elif r_mail in usuarios_registrados:
+          st.error("El correo ya se encuentra registrado.")
+        else:
+          exito = registrar_usuario_db(r_mail, r_pwd, r_nom)
+          if exito:
+            st.session_state.sesion_activa = r_nom
+            st.success(
+                "¡Cuenta creada con éxito y guardada en la base de datos!"
+            )
+            st.rerun()
+          else:
+            st.error("Hubo un error al registrarse en la base de datos.")
   else:
     col_u1, col_u2 = st.columns([3, 1])
     with col_u1:
-      st.info(f"Conectado como: *{st.session_state.sesion_activa}*")
+      st.info(f"Conectado como: **{st.session_state.sesion_activa}**")
     with col_u2:
       if st.button("Cerrar Sesión"):
         st.session_state.sesion_activa = None
@@ -541,9 +550,5 @@ def registrar_usuario_db(email, password, nombre):
     st.markdown("#### 📰 Muro de Publicaciones")
     for p in st.session_state.posts:
       with st.container(border=True):
-        st.markdown(f"*{p['avatar']} {p['usuario']}*")
+        st.markdown(f"**{p['avatar']} {p['usuario']}**")
         st.write(p["texto"])
-    st.link_button(
-        "Abrir en Google Maps",
-        "https://www.google.com/maps/place/Villavicencio,+Meta",
-    )
