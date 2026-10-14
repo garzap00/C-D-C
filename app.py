@@ -206,7 +206,11 @@ if menu == "Inicio & Dashboard":
 
     # Introducción y Título principal
     st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Introducción</p><h2>Regiones</h2>", unsafe_allow_html=True)
+    c1, c2 = st.columns(2)
 
+    with c1:
+        with st.container(border=True)
+            st.markdown("Región Caribe")
     # Cultivos de referencia
     st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p><h2>Cultivos de referencia</h2>", unsafe_allow_html=True)
 
