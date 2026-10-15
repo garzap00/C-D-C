@@ -315,7 +315,7 @@ if menu == "Inicio & Dashboard":
                     "https://agrotendencia.tv/wp-content/uploads/2020/07/agrotendencia-agropedia-cultivo-de-coco-7.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Coco:</h4><p>Se encuentra en islas como San Andrés y Providencia, donde el clima tropical favorece su crecimiento. Se utiliza para preparar arroz con coco, dulces y leche de coco. También forma parte de la gastronomía tradicional de las islas.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Coco:</h4><p>Se encuentra en  las islas San Andrés y Providencia, donde el clima tropical favorece su crecimiento. Se utiliza para preparar arroz con coco, dulces y leche de coco. También es parte de la gastronomía tradicional de las islas.</p>", unsafe_allow_html=True)
             with vs2:
               with st.container(border=True):  
                 st.image(
