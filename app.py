@@ -210,7 +210,7 @@ if menu == "Inicio & Dashboard":
 # Region Caribe
     with c1:
         with st.container(border=True):
-            st.markdown("<h3>Region Caribe:<h3>", unsafe_allow_html=True)
+            st.markdown("<h3>Región Caribe:<h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
                 st.image(
@@ -224,6 +224,24 @@ if menu == "Inicio & Dashboard":
                     use_container_width=True,
                 )
                 st.markdown("<h4>Yuca:</h4><p> La yuca se cultiva en departamentos como Bolívar, Córdoba, Sucre y Atlántico. Es resistente a los periodos secos y se utiliza para preparar alimentos como yuca cocida, frita y harinas.</p>", unsafe_allow_html=True)
+# Region Pasífica
+    with c2:
+        with st.container(border=True):
+            st.markdown("<h3>Región Pacífica:<h3>", unsafe_allow_html=True)
+            sc1, sc2 = st.columns(2)
+            with sc1:
+                st.image(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Caña de azucar:</h4><p> La caña de azúcar se cultiva principalmente en el Valle del Cauca. Necesita clima cálido, agua y suelos adecuados. Se utiliza para producir azúcar, panela y otros productos industriales.</p>", unsafe_allow_html=True)
+            with sc2:
+                st.image(
+                    "https://blog.mentta.com/wp-content/uploads/2024/06/pexels-daniel-dan-47825192-7543155-scaled.jpg",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como Chocó. Se utiliza para preparar patacones, sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)
+        
     # Cultivos de referencia
     st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p><h2>Cultivos de referencia</h2>", unsafe_allow_html=True)
 
