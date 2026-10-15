@@ -241,79 +241,42 @@ if menu == "Inicio & Dashboard":
                     use_container_width=True,
                 )
                 st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como Chocó. Se utiliza para preparar patacones, sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)
-        
-    # Cultivos de referencia
-    st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p><h2>Cultivos de referencia</h2>", unsafe_allow_html=True)
-
-    c1, c2, c3, c4 = st.columns(4)
-
+        c1, c2 = st.columns(2)
+# Region Caribe
     with c1:
         with st.container(border=True):
-            st.image(
-                "https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=600&q=80",
-                use_container_width=True,
-            )
-            st.markdown("### Maíz")
-            st.write("Cultivo de importancia alimentaria y productiva, adaptable a diferentes sistemas agrícolas.")
-            st.markdown("---")
+            st.markdown("<h3>Región Caribe:<h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
-                st.caption("Suelo\nBien drenado")
-                st.caption("Clima\nCálido")
+                st.image(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Banano:</h4><p> El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante, suelo fértil y cuidados para crecer. Se consume fresco y también se vende a otros países.</p>", unsafe_allow_html=True)
             with sc2:
-                st.caption("Agua\nModerada")
-                st.caption("Uso\nAlimentación")
-
+                st.image(
+                    "https://blog.mentta.com/wp-content/uploads/2024/06/pexels-daniel-dan-47825192-7543155-scaled.jpg",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Yuca:</h4><p> La yuca se cultiva en departamentos como Bolívar, Córdoba, Sucre y Atlántico. Es resistente a los periodos secos y se utiliza para preparar alimentos como yuca cocida, frita y harinas.</p>", unsafe_allow_html=True)
+# Region Pasífica
     with c2:
         with st.container(border=True):
-            st.image(
-                "https://mareterracoffee.com/wp-content/uploads/2022/11/Planta-de-cafe--e1767865783596.png",
-                use_container_width=True,
-            )
-            st.markdown("### Café")
-            st.write("Sistema productivo asociado a zonas con condiciones climáticas y altitudinales particulares.")
-            st.markdown("---")
+            st.markdown("<h3>Región Pacífica:<h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
-                st.caption("Suelo\nDrenado")
-                st.caption("Clima\nTemplado")
+                st.image(
+                    "https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Caña de azucar:</h4><p> La caña de azúcar se cultiva principalmente   en el Valle del Cauca. Necesita clima cálido, agua y suelos adecuados. Se utiliza para producir azúcar, panela y otros productos industriales.</p>", unsafe_allow_html=True)
             with sc2:
-                st.caption("Agua\nDisponible")
-                st.caption("Uso\nComercial")
+                st.image(
+                    "https://dulcesdiabeticos.com/wp-content/uploads/2019/12/platano-y-diabetes-puede-un-diabetico-comer-platanos_opt.png",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como Chocó. Se utiliza para preparar patacones, sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)    
 
-    with c3:
-        with st.container(border=True):
-            st.image(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgrsv2ZUeqLtcPtGEyfsP0h9jNDsZtuHtKwbC_1TyQtQ&s",
-                use_container_width=True,
-            )
-            st.markdown("### Plátano")
-            st.write("Cultivo tropical que requiere disponibilidad de agua y condiciones adecuadas de temperatura.")
-            st.markdown("---")
-            sc1, sc2 = st.columns(2)
-            with sc1:
-                st.caption("Suelo\nFértil")
-                st.caption("Clima\nTropical")
-            with sc2:
-                st.caption("Agua\nAlta")
-                st.caption("Uso\nAlimentación")
-
-    with c4:
-        with st.container(border=True):
-            st.image(
-                "https://grandsur.com/wp-content/uploads/2021/02/GrandSur-Our-Products-ASSS.jpg",
-                use_container_width=True,
-            )
-            st.markdown("### Cacao")
-            st.write("Sistema productivo tropical que requiere condiciones adecuadas de humedad, temperatura y suelo.")
-            st.markdown("---")
-            sc1, sc2 = st.columns(2)
-            with sc1:
-                st.caption("Suelo\nProfundo")
-                st.caption("Clima\nTropical")
-            with sc2:
-                st.caption("Agua\nDisponible")
-                st.caption("Uso\nComercial")
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
