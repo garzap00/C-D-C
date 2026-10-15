@@ -234,7 +234,7 @@ if menu == "Inicio & Dashboard":
                     "https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Caña de azucar:</h4><p> La caña de azúcar se cultiva principalmente en el Valle del Cauca. Necesita clima cálido, agua y suelos adecuados. Se utiliza para producir azúcar, panela y otros productos industriales.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Caña de azucar:</h4><p> La caña de azúcar se cultiva principalmente   en el Valle del Cauca. Necesita clima cálido, agua y suelos adecuados. Se utiliza para producir azúcar, panela y otros productos industriales.</p>", unsafe_allow_html=True)
             with sc2:
                 st.image(
                     "https://dulcesdiabeticos.com/wp-content/uploads/2019/12/platano-y-diabetes-puede-un-diabetico-comer-platanos_opt.png",
