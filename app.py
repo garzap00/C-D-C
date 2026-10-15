@@ -134,13 +134,15 @@ def crear_comentario_db(post_id, usuario, texto):
 
 # --- BASE DE DATOS DINÁMICA POR TERRITORIO ---
 DATOS_TERRITORIOS = {
-    "Meta (Altillanura)": {
-        "humedad": "72%",
-        "est_humedad": "Óptimo para arroz/palma",
-        "temp": "28.5°C",
-        "est_temp": "Clima cálido seco",
-        "hectareas": "3,450 Ha",
-        "productores": "520 Líderes",
+    "Orionoquía": {
+        "humedad": "75-85%",
+        "est_humedad": "La temporada de lluvia es más humeda",
+        "temp": "24-30°C",
+        "est_temp": "Predomina el calor en el año",
+        "precipitacion": "2.000-3.500mm/año",
+        "est_pre": "Hay más lluvia en una temporada";
+        "altitud": "100-500m.s.n.m.",
+        "est_alt": "Predomina la llanura",
         "cultivos": [
             {"nombre": "🍌 Plátano y Yuca", "desc": "Principal renglón de la altillanura"},
             {"nombre": "🌽 Maíz Tecnificado", "desc": "Siembra masiva con maquinaria"},
@@ -491,32 +493,26 @@ if menu == "Inicio & Dashboard":
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 # CAMBIAR SELEC REGION PARA DATOS    
-    st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
-    col_t1, col_t2, col_t3 = st.columns(3)
+    st.markdown("#### 🗺️ Seleccionar Región")
+    col_t1 = st.columns(1)
 
     with col_t1:
-        territorio_elegido = st.selectbox("Departamento / Región", list(DATOS_TERRITORIOS.keys()))
-
-    with col_t2:
-        cultivo_filtro = st.selectbox("Filtrar por Orientación", ["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"])
-
-    with col_t3:
-        metrica_filtro = st.selectbox("Métrica de Enfoque", ["Humedad del Suelo", "Temperatura Promedio", "Área Cultivada"])
+        territorio_elegido = st.selectbox("Región", list(DATOS_TERRITORIOS.keys()))
 
     info_region = DATOS_TERRITORIOS[territorio_elegido]
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(f"### 📊 Datos en Tiempo Real: *{territorio_elegido}*")
+    st.markdown(f"### 📊 Datos Promedio de: *{territorio_elegido}*")
     
     k1, k2, k3, k4 = st.columns(4)
     with k1:
-        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Humedad Promedio</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["humedad"]}</div><small style="color:#2e7d32;">{info_region["est_humedad"]}</small></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Humedad del suelo</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["humedad"]}</div><small style="color:#2e7d32;">{info_region["est_humedad"]}</small></div>', unsafe_allow_html=True)
     with k2:
-        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Temperatura Suelo</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["temp"]}</div><small style="color:#718077;">{info_region["est_temp"]}</small></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Temperatura </div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["temp"]}</div><small style="color:#718077;">{info_region["est_temp"]}</small></div>', unsafe_allow_html=True)
     with k3:
-        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Áreas Registradas</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["hectareas"]}</div><small style="color:#c8a64e;">Sensores Activos</small></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Precipitación</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["precipitacion"]}</div><small style="color:#c8a64e;">{info_region["est_pre"]}</small></div>', unsafe_allow_html=True)
     with k4:
-        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Productores Conectados</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["productores"]}</div><small style="color:#2e7d32;">Comunidad SENA</small></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Altitud</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["altitud"]}</div><small style="color:#2e7d32;">info_region["est_alt"]}</small></div>', unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 🌾 Cultivos Característicos en *{territorio_elegido.split(' ')[0]}*")
