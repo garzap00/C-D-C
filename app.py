@@ -349,7 +349,7 @@ if menu == "Inicio & Dashboard":
         """, unsafe_allow_html=True)
 
         st.image(
-            "https://images.unsplash.com/photo-1595974482597-4f6c1cfc8d62?auto=format&fit=crop&w=800&q=80",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBZUj4GcnsYbycJV5Ed1urj89TPf2IAAuus6f8rqLVBA&s=10",
             use_container_width=True
         )
 
