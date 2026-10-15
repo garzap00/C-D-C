@@ -512,7 +512,7 @@ if menu == "Inicio & Dashboard":
     with k3:
         st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Precipitación</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["precipitacion"]}</div><small style="color:#c8a64e;">{info_region["est_pre"]}</small></div>', unsafe_allow_html=True)
     with k4:
-        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Altitud</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["altitud"]}</div><small style="color:#2e7d32;">info_region["est_alt"]}</small></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Altitud</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["altitud"]}</div><small style="color:#2e7d32;">{info_region["est_alt"]}</small></div>', unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 🌾 Cultivos Característicos en *{territorio_elegido.split(' ')[0]}*")
