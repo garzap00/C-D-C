@@ -241,7 +241,7 @@ if menu == "Inicio & Dashboard":
                     use_container_width=True,
                 )
                 st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como el Chocó. Se utiliza para preparar patacones como complemento en sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)
-s1, s2 = st.columns(2)
+    s1, s2 = st.columns(2)
 # Region Caribe
     with s1:
         with st.container(border=True):
