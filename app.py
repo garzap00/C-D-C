@@ -229,7 +229,7 @@ if menu == "Inicio & Dashboard":
         color: #f3c84b;
     }
     .section-text {
-        color: #29465b;
+        color: #666666;
         font-size: 16px;
         line-height: 1.8;
         text-align: justify;
