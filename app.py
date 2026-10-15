@@ -74,6 +74,62 @@ def registrar_usuario_db(email, password, nombre):
         st.error(f"Detalle técnico del error: {e}")
         return False
 
+# --- FUNCIONES DEL FORO CON SUPABASE ---
+def obtener_posts_db():
+    try:
+        response = supabase.table("foro").select("*").order("id", desc=True).execute()
+        if response.data:
+            return response.data
+        else:
+            return [{
+                "id": 1,
+                "usuario": "Carlos Agrónomo",
+                "texto": "Excelente producción en la altillanura. El campo colombiano avanza con tecnología.",
+            }]
+    except Exception:
+        return [{
+            "id": 1,
+            "usuario": "Carlos Agrónomo",
+            "texto": "Excelente producción en la altillanura. El campo colombiano avanza con tecnología.",
+        }]
+
+def crear_post_db(usuario, texto):
+    try:
+        supabase.table("foro").insert({
+            "usuario": usuario,
+            "texto": texto,
+        }).execute()
+        return True
+    except Exception as e:
+        st.error(f"Error al publicar en la base de datos: {e}")
+        return False
+
+# --- FUNCIONES DE COMENTARIOS / RESPUESTAS ---
+def obtener_comentarios_db(post_id):
+    try:
+        response = (
+            supabase.table("comentarios")
+            .select("*")
+            .eq("post_id", post_id)
+            .order("id", asc=True)
+            .execute()
+        )
+        return response.data if response.data else []
+    except Exception:
+        return []
+
+def crear_comentario_db(post_id, usuario, texto):
+    try:
+        supabase.table("comentarios").insert({
+            "post_id": post_id,
+            "usuario": usuario,
+            "texto": texto,
+        }).execute()
+        return True
+    except Exception as e:
+        st.error(f"Error al responder: {e}")
+        return False
+
 # --- BASE DE DATOS DINÁMICA POR TERRITORIO ---
 DATOS_TERRITORIOS = {
     "Meta (Altillanura)": {
@@ -151,12 +207,6 @@ DATOS_TERRITORIOS = {
 # Inicializar estados de sesión
 if "sesion_activa" not in st.session_state:
     st.session_state.sesion_activa = None
-if "posts" not in st.session_state:
-    st.session_state.posts = [{
-        "usuario": "Carlos Agrónomo",
-        "avatar": "🌾",
-        "texto": "Excelente producción en la altillanura. El campo colombiano avanza con tecnología.",
-    }]
 
 # Contenedor para el logo y el título alineados horizontalmente
 col_logo, col_titulo = st.columns([0.07, 0.93])
@@ -191,9 +241,9 @@ if menu == "Inicio & Dashboard":
                 SENA • Proyecto Agropecuario
             </span>
             <h1 style="font-size: 38px; margin-top: 15px;">
-                Sembramos Conocimiento, 
+                Sembramos Conocimiento y 
                 <span style="color:#d1b052;">
-                    Cosechamos Futuro
+                    Sembramos Futuro
                 </span>
             </h1>
             <p style="font-size: 15px; color: #dce6df; max-width: 700px;">
@@ -204,7 +254,6 @@ if menu == "Inicio & Dashboard":
         unsafe_allow_html=True,
     )
 
-    # Estilos CSS específicos de la sección Problema / Solución
     st.markdown("""
     <style>
     .problem-solution {
@@ -229,7 +278,7 @@ if menu == "Inicio & Dashboard":
         color: #f3c84b;
     }
     .section-text {
-        color: #666666;
+        color: #29465b;
         font-size: 16px;
         line-height: 1.8;
         text-align: justify;
@@ -269,7 +318,6 @@ if menu == "Inicio & Dashboard":
 
     col_problema, col_solucion = st.columns([1, 1.05], gap="large")
 
-    # EL PROBLEMA
     with col_problema:
         st.markdown("""
         <div class="section-title">
@@ -302,7 +350,7 @@ if menu == "Inicio & Dashboard":
             ("🌾", "Desconocen el tipo de suelo que necesitan."),
             ("📅", "No conocen la época adecuada para sembrar."),
             ("🐛", "Tienen problemas con sus cultivos y plagas."),
-            
+            ("📶", "En algunas zonas es difícil acceder a internet.")
         ]
 
         tarjetas_cols = st.columns(2)
@@ -323,7 +371,6 @@ if menu == "Inicio & Dashboard":
         </div>
         """, unsafe_allow_html=True)
 
-    # LA SOLUCIÓN
     with col_solucion:
         st.markdown("""
         <div class="section-title">
@@ -349,7 +396,7 @@ if menu == "Inicio & Dashboard":
         """, unsafe_allow_html=True)
 
         st.image(
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBZUj4GcnsYbycJV5Ed1urj89TPf2IAAuus6f8rqLVBA&s=10",
+            "https://images.unsplash.com/photo-1595974482597-4f6c1cfc8d62?auto=format&fit=crop&w=800&q=80",
             use_container_width=True
         )
 
@@ -367,200 +414,108 @@ if menu == "Inicio & Dashboard":
     st.markdown('</div>', unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # SECCIÓN DE REGIONES Y PRODUCTOS
     st.markdown("<h2>Regiones</h2><p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>lo más sembrado</p>", unsafe_allow_html=True)
     
     c1, c2 = st.columns(2)
 
-    # Region Caribe
     with c1:
         with st.container(border=True):
             st.markdown("<h3>Región Caribe</h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
-                st.image(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Banano:</h4><p>El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante y suelo fértil.</p>", unsafe_allow_html=True)
+                st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10", use_container_width=True)
+                st.markdown("<h4>Banano:</h4><p>El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira.</p>", unsafe_allow_html=True)
             with sc2:
-                st.image(
-                    "https://blog.mentta.com/wp-content/uploads/2024/06/pexels-daniel-dan-47825192-7543155-scaled.jpg",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Yuca:</h4><p>Se cultiva en Bolívar, Córdoba, Sucre y Atlántico. Es resistente a periodos secos y muy versátil en la cocina.</p>", unsafe_allow_html=True)
+                st.image("https://blog.mentta.com/wp-content/uploads/2024/06/pexels-daniel-dan-47825192-7543155-scaled.jpg", use_container_width=True)
+                st.markdown("<h4>Yuca:</h4><p>Se cultiva en Bolívar, Córdoba, Sucre y Atlántico.</p>", unsafe_allow_html=True)
 
-    # Region Pacífica
     with c2:
         with st.container(border=True):
             st.markdown("<h3>Región Pacífica</h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
-                st.image(
-                    "https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Caña de azúcar:</h4><p>Se cultiva principalmente en el Valle del Cauca. Se utiliza para producir azúcar, panela y otros derivados.</p>", unsafe_allow_html=True)
+                st.image("https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg", use_container_width=True)
+                st.markdown("<h4>Caña de azúcar:</h4><p>Se cultiva principalmente en el Valle del Cauca.</p>", unsafe_allow_html=True)
             with sc2:
-                st.image(
-                    "https://dulcesdiabeticos.com/wp-content/uploads/2019/12/platano-y-diabetes-puede-un-diabetico-comer-platanos_opt.png",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Plátano:</h4><p>Cultivado en zonas cálidas y húmedas como el Chocó. Requiere buena humedad y suelos con drenaje.</p>", unsafe_allow_html=True)
+                st.image("https://dulcesdiabeticos.com/wp-content/uploads/2019/12/platano-y-diabetes-puede-un-diabetico-comer-platanos_opt.png", use_container_width=True)
+                st.markdown("<h4>Plátano:</h4><p>Cultivado en zonas cálidas y húmedas como el Chocó.</p>", unsafe_allow_html=True)
 
     s1, s2 = st.columns(2)
 
-    # Region Andina
     with s1:
         with st.container(border=True):
             st.markdown("<h3>Región Andina</h3>", unsafe_allow_html=True)
             ss1, ss2 = st.columns(2)
             with ss1:
-                st.image(
-                    "https://apasionadosporelcafe.com/wp-content/uploads/2021/11/shutterstock_559059673-1.jpg",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Café:</h4><p>Tradicional de Antioquia, Huila, Caldas, Quindío y Risaralda. Produce una de las bebidas más conocidas del mundo.</p>", unsafe_allow_html=True)
+                st.image("https://apasionadosporelcafe.com/wp-content/uploads/2021/11/shutterstock_559059673-1.jpg", use_container_width=True)
+                st.markdown("<h4>Café:</h4><p>Tradicional de Antioquia, Huila, Caldas, Quindío y Risaralda.</p>", unsafe_allow_html=True)
             with ss2:
-                st.image(
-                    "https://cdn.portalfruticola.com/2020/09/91882f55-potatoes-2543686_1920.jpg",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Papa:</h4><p>Principal en zonas frías de Boyacá, Cundinamarca y Nariño. Alimento base en la gastronomía colombiana.</p>", unsafe_allow_html=True)
+                st.image("https://cdn.portalfruticola.com/2020/09/91882f55-potatoes-2543686_1920.jpg", use_container_width=True)
+                st.markdown("<h4>Papa:</h4><p>Principal en zonas frías de Boyacá, Cundinamarca y Nariño.</p>", unsafe_allow_html=True)
 
-    # Region Orinoquía
     with s2:
         with st.container(border=True):
             st.markdown("<h3>Región Orinoquía</h3>", unsafe_allow_html=True)
             ss1, ss2 = st.columns(2)
             with ss1:
-                st.image(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Arroz:</h4><p>Cultivado masivamente en Meta y Casanare. Requiere temperaturas cálidas y riego tecnificado.</p>", unsafe_allow_html=True)
+                st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10", use_container_width=True)
+                st.markdown("<h4>Arroz:</h4><p>Cultivado masivamente en Meta y Casanare.</p>", unsafe_allow_html=True)
             with ss2:
-                st.image(
-                    "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Palma de Aceite:</h4><p>Desarrollada en losillanuras del Meta para la producción agroindustrial de aceites y derivados.</p>", unsafe_allow_html=True)    
+                st.image("https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg", use_container_width=True)
+                st.markdown("<h4>Palma de Aceite:</h4><p>Desarrollada en las altillanuras del Meta.</p>", unsafe_allow_html=True)    
 
     v1, v2 = st.columns(2)
 
-    # Region Amazonía
     with v1:
         with st.container(border=True):
             st.markdown("<h3>Región Amazonía</h3>", unsafe_allow_html=True)
             vs1, vs2 = st.columns(2)
             with vs1:
-                st.image(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopDO0LRj2yZQLwBAibyEyJwTCgrPkPOq8joBMAYGKLBeD-asSOrw7e3h2&s=10",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Cacao:</h4><p>Se cultiva en Caquetá y Putumayo bajo climas cálidos y húmedos para la producción de chocolate.</p>", unsafe_allow_html=True)
+                st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopDO0LRj2yZQLwBAibyEyJwTCgrPkPOq8joBMAYGKLBeD-asSOrw7e3h2&s=10", use_container_width=True)
+                st.markdown("<h4>Cacao:</h4><p>Se cultiva en Caquetá y Putumayo.</p>", unsafe_allow_html=True)
             with vs2:
-                st.image(
-                    "https://radionacional-v3.s3.amazonaws.com/s3fs-public/node/article/field_image/Produccion%20de%20chontaduro.jpeg",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Chontaduro:</h4><p>Fruto tropical tradicional de alta importancia nutricional para las comunidades amazónicas.</p>", unsafe_allow_html=True)
+                st.image("https://radionacional-v3.s3.amazonaws.com/s3fs-public/node/article/field_image/Produccion%20de%20chontaduro.jpeg", use_container_width=True)
+                st.markdown("<h4>Chontaduro:</h4><p>Fruto tropical de las comunidades amazónicas.</p>", unsafe_allow_html=True)
 
-    # Region Insular
     with v2:
         with st.container(border=True):
             st.markdown("<h3>Región Insular</h3>", unsafe_allow_html=True)
             vs1, vs2 = st.columns(2)
             with vs1:
-                st.image(
-                    "https://agrotendencia.tv/wp-content/uploads/2020/07/agrotendencia-agropedia-cultivo-de-coco-7.jpg",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Coco:</h4><p>Propio de San Andrés y Providencia, esencial para la gastronomía típica insular.</p>", unsafe_allow_html=True)
+                st.image("https://agrotendencia.tv/wp-content/uploads/2020/07/agrotendencia-agropedia-cultivo-de-coco-7.jpg", use_container_width=True)
+                st.markdown("<h4>Coco:</h4><p>Propio de San Andrés y Providencia.</p>", unsafe_allow_html=True)
             with vs2:
-                st.image(
-                    "https://www.cocinadominicana.com/wp-content/uploads/2022/05/batata-mercado-dinamarca-DSC2578-2.jpg",
-                    use_container_width=True,
-                )
-                st.markdown("<h4>Batata:</h4><p>Tubérculo adaptado a suelos tropicales sueltos, muy versátil en preparaciones dulces y saladas.</p>", unsafe_allow_html=True)
+                st.image("https://www.cocinadominicana.com/wp-content/uploads/2022/05/batata-mercado-dinamarca-DSC2578-2.jpg", use_container_width=True)
+                st.markdown("<h4>Batata:</h4><p>Tubérculo adaptado a suelos tropicales sueltos.</p>", unsafe_allow_html=True)
 
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # --- PANEL DE CONTROL Y FILTROS ---
     st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
     col_t1, col_t2, col_t3 = st.columns(3)
 
     with col_t1:
-        territorio_elegido = st.selectbox(
-            "Departamento / Región", list(DATOS_TERRITORIOS.keys())
-        )
+        territorio_elegido = st.selectbox("Departamento / Región", list(DATOS_TERRITORIOS.keys()))
 
     with col_t2:
-        cultivo_filtro = st.selectbox(
-            "Filtrar por Orientación",
-            ["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"],
-        )
+        cultivo_filtro = st.selectbox("Filtrar por Orientación", ["Todos los sistemas", "Tecnificado", "Tradicional", "Agroindustrial"])
 
     with col_t3:
-        metrica_filtro = st.selectbox(
-            "Métrica de Enfoque",
-            ["Humedad del Suelo", "Temperatura Promedio", "Área Cultivada"],
-        )
+        metrica_filtro = st.selectbox("Métrica de Enfoque", ["Humedad del Suelo", "Temperatura Promedio", "Área Cultivada"])
 
     info_region = DATOS_TERRITORIOS[territorio_elegido]
 
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 📊 Datos en Tiempo Real: *{territorio_elegido}*")
     
-    # --- TARJETAS KPI ---
     k1, k2, k3, k4 = st.columns(4)
     with k1:
-        st.markdown(
-            f"""
-            <div class="kpi-card">
-                <div style="color:#718077; font-size:13px;">Humedad Promedio</div>
-                <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['humedad']}</div>
-                <small style="color:#2e7d32;">{info_region['est_humedad']}</small>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
+        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Humedad Promedio</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["humedad"]}</div><small style="color:#2e7d32;">{info_region["est_humedad"]}</small></div>', unsafe_allow_html=True)
     with k2:
-        st.markdown(
-            f"""
-            <div class="kpi-card">
-                <div style="color:#718077; font-size:13px;">Temperatura Suelo</div>
-                <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['temp']}</div>
-                <small style="color:#718077;">{info_region['est_temp']}</small>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
+        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Temperatura Suelo</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["temp"]}</div><small style="color:#718077;">{info_region["est_temp"]}</small></div>', unsafe_allow_html=True)
     with k3:
-        st.markdown(
-            f"""
-            <div class="kpi-card">
-                <div style="color:#718077; font-size:13px;">Áreas Registradas</div>
-                <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['hectareas']}</div>
-                <small style="color:#c8a64e;">Sensores Activos</small>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
+        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Áreas Registradas</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["hectareas"]}</div><small style="color:#c8a64e;">Sensores Activos</small></div>', unsafe_allow_html=True)
     with k4:
-        st.markdown(
-            f"""
-            <div class="kpi-card">
-                <div style="color:#718077; font-size:13px;">Productores Conectados</div>
-                <div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region['productores']}</div>
-                <small style="color:#2e7d32;">Comunidad SENA</small>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        st.markdown(f'<div class="kpi-card"><div style="color:#718077; font-size:13px;">Productores Conectados</div><div style="font-size:26px; font-weight:800; margin:5px 0; color:#10271c;">{info_region["productores"]}</div><small style="color:#2e7d32;">Comunidad SENA</small></div>', unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 🌾 Cultivos Característicos en *{territorio_elegido.split(' ')[0]}*")
@@ -576,19 +531,12 @@ if menu == "Inicio & Dashboard":
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
-    # --- SECCIÓN CONTACTO ---
-    st.markdown(
-        "<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Campo Digital Colombia</p>",
-        unsafe_allow_html=True,
-    )
+    st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Campo Digital Colombia</p>", unsafe_allow_html=True)
     st.markdown("## Conecta con el proyecto")
-    st.write(
-        "Espacio de contacto para conocer la propuesta y continuar desarrollando herramientas digitales para el sector rural."
-    )
+    st.write("Espacio de contacto para conocer la propuesta y continuar desarrollando herramientas digitales para el sector rural.")
     st.markdown("<br>", unsafe_allow_html=True)
 
     cc1, cc2 = st.columns(2)
-
     with cc1:
         with st.container(border=True):
             st.markdown("### Correo electrónico")
@@ -599,22 +547,15 @@ if menu == "Inicio & Dashboard":
     with cc2:
         with st.container(border=True):
             st.markdown("### Villavicencio, Meta")
-            st.write(
-                "C.D.C. tiene como referencia territorial inicial Villavicencio y el departamento del Meta."
-            )
-            st.link_button(
-                "Abrir en Google Maps",
-                "https://www.google.com/maps/place/Villavicencio,+Meta",
-            )
+            st.write("C.D.C. tiene como referencia territorial inicial Villavicencio y el departamento del Meta.")
+            st.link_button("Abrir en Google Maps", "https://www.google.com/maps/place/Villavicencio,+Meta")
 
 # ==========================================
 # SECCIÓN 2: FORO Y RED SOCIAL AGRO
 # ==========================================
 elif menu == "💬 Foro y Red Social Agro":
     st.markdown("## 💬 Comunidad y Foro Agropecuario - C.D.C.")
-    st.write(
-        "Comparte experiencias, reporta datos de cosecha o interactúa con otros aprendices."
-    )
+    st.write("Comparte experiencias, reporta datos de cosecha o interactúa con otros aprendices.")
 
     usuarios_registrados = obtener_usuarios_db()
 
@@ -625,10 +566,7 @@ elif menu == "💬 Foro y Red Social Agro":
             email = st.text_input("Correo electrónico", key="l_mail")
             pwd = st.text_input("Contraseña", type="password", key="l_pwd")
             if st.button("Entrar", type="primary"):
-                if (
-                    email in usuarios_registrados
-                    and usuarios_registrados[email]["password"] == pwd
-                ):
+                if email in usuarios_registrados and usuarios_registrados[email]["password"] == pwd:
                     st.session_state.sesion_activa = usuarios_registrados[email]["nombre"]
                     st.success("¡Bienvenido!")
                     st.rerun()
@@ -648,9 +586,7 @@ elif menu == "💬 Foro y Red Social Agro":
                     exito = registrar_usuario_db(r_mail, r_pwd, r_nom)
                     if exito:
                         st.session_state.sesion_activa = r_nom
-                        st.success(
-                            "¡Cuenta creada con éxito y guardada en la base de datos!"
-                        )
+                        st.success("¡Cuenta creada con éxito y guardada en la base de datos!")
                         st.rerun()
                     else:
                         st.error("Hubo un error al registrarse en la base de datos.")
@@ -667,19 +603,32 @@ elif menu == "💬 Foro y Red Social Agro":
             texto_foro = st.text_area("¿Qué deseas compartir sobre el campo hoy?")
             if st.form_submit_button("Publicar en la red"):
                 if texto_foro.strip():
-                    st.session_state.posts.insert(
-                        0,
-                        {
-                            "usuario": st.session_state.sesion_activa,
-                            "avatar": "🧑‍🌾",
-                            "texto": texto_foro,
-                        },
-                    )
-                    st.success("¡Publicado!")
+                    crear_post_db(st.session_state.sesion_activa, texto_foro)
+                    st.success("¡Publicado en el foro!")
                     st.rerun()
 
         st.markdown("#### 📰 Muro de Publicaciones")
-        for p in st.session_state.posts:
+        posts_actuales = obtener_posts_db()
+        for p in posts_actuales:
+            post_id = p.get("id")
             with st.container(border=True):
-                st.markdown(f"**{p['avatar']} {p['usuario']}**")
-                st.write(p["texto"])
+                st.markdown(f"**👤 {p.get('usuario')}**")
+                st.write(p.get("texto"))
+
+                # Cargar respuestas/comentarios del post actual
+                comentarios = obtener_comentarios_db(post_id) if post_id else []
+                num_comentarios = len(comentarios)
+
+                with st.expander(f"💬 Respuestas ({num_comentarios})"):
+                    # Mostrar comentarios existentes
+                    for c in comentarios:
+                        st.markdown(f"↳ **{c.get('usuario')}**: {c.get('texto')}")
+
+                    # Formulario para agregar una nueva respuesta
+                    with st.form(f"form_resp_{post_id}"):
+                        txt_respuesta = st.text_input("Escribe tu respuesta:", key=f"input_{post_id}")
+                        if st.form_submit_button("Responder"):
+                            if txt_respuesta.strip():
+                                crear_comentario_db(post_id, st.session_state.sesion_activa, txt_respuesta)
+                                st.success("¡Respuesta enviada!")
+                                st.rerun()
