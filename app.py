@@ -242,23 +242,23 @@ if menu == "Inicio & Dashboard":
                 )
                 st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como el Chocó. Se utiliza para preparar patacones como complemento en sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)
     s1, s2 = st.columns(2)
-# Region Caribe
+# Region Andina
     with s1:
         with st.container(border=True):
             st.markdown("<h3>Región Andina:<h3>", unsafe_allow_html=True)
             ss1, ss2 = st.columns(2)
             with ss1:
                 st.image(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
+                    "https://blog.ucc.edu.co/hs-fs/hubfs/proceso-produccion-cafe.jpg?width=5760&height=3840&name=proceso-produccion-cafe.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Café:</h4><p> El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante, suelo fértil y cuidados para crecer. Se consume fresco y también se vende a otros países.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Café:</h4><p> El café se cultiva en departamentos como Antioquia, Huila, Caldas, Quindío y Risaralda. Crece bien en zonas con temperaturas adecuadas y lluvias suficientes. Sus granos se procesan para producir una de las bebidas más conocidas de Colombia.</p>", unsafe_allow_html=True)
             with ss2:
                 st.image(
-                    "https://blog.mentta.com/wp-content/uploads/2024/06/pexels-daniel-dan-47825192-7543155-scaled.jpg",
+                    "https://cdn.portalfruticola.com/2020/09/91882f55-potatoes-2543686_1920.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Papa:</h4><p> La yuca se cultiva en departamentos como Bolívar, Córdoba, Sucre y Atlántico. Es resistente a los periodos secos y se utiliza para preparar alimentos como yuca cocida, frita y harinas.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Papa:</h4><p> La papa se cultiva principalmente en zonas frías de Boyacá, Cundinamarca y Nariño. Necesita suelos fértiles y buen drenaje. Se utiliza en sopas, purés, frituras y muchos otros alimentos.</p>", unsafe_allow_html=True)
 # Region Orinoquía
     with s2:
         with st.container(border=True):
@@ -266,20 +266,21 @@ if menu == "Inicio & Dashboard":
             ss1, ss2 = st.columns(2)
             with ss1:
                 st.image(
-                    "https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg",
+                    "https://www.fertilizantesyabonos.com/wp-content/uploads/espigas-de-arroz-listas-para-recolectar.webp",
                     use_container_width=True,
                 )
-                st.markdown("<h4>yyyy:</h4><p> La caña de azúcar se cultiva principalmente   en el Valle del Cauca. Necesita clima cálido, agua y suelos adecuados. Se utiliza para producir azúcar, panela y otros productos industriales.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Arroz:</h4><p> El arroz se cultiva principalmente en Meta y Casanare. Necesita temperaturas cálidas, agua disponible y un manejo adecuado del suelo. Es un alimento básico que se consume en muchos hogares colombianos.</p>", unsafe_allow_html=True)
             with ss2:
                 st.image(
-                    "https://dulcesdiabeticos.com/wp-content/uploads/2019/12/platano-y-diabetes-puede-un-diabetico-comer-platanos_opt.png",
+                    "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Pppp:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como Chocó. Se utiliza para preparar patacones, sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)    
+                st.markdown("<h4>Palma de Aceite:</h4><p> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)    
 
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
+    
     # --- PANEL DE CONTROL Y FILTROS ---
     st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
     col_t1, col_t2, col_t3 = st.columns(3)
