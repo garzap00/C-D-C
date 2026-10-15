@@ -266,13 +266,13 @@ if menu == "Inicio & Dashboard":
             ss1, ss2 = st.columns(2)
             with ss1:
                 st.image(
-                    "https://www.fertilizantesyabonos.com/wp-content/uploads/espigas-de-arroz-listas-para-recolectar.webp",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Arroz:</h4><p> El arroz se cultiva principalmente en Meta y Casanare. Necesita temperaturas cálidas, agua disponible y un manejo adecuado del suelo. Es un alimento básico que se consume en muchos hogares colombianos.</p>", unsafe_allow_html=True)
             with ss2:
                 st.image(
-                    "https://cdn.pixabay.com/photo/2025/11/18/08/14/rice-terraces-9963160_1280.jpg",
+                    "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Palma de Aceite:</h4><p> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)    
