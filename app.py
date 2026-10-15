@@ -140,7 +140,7 @@ DATOS_TERRITORIOS = {
         "temp": "24-30°C",
         "est_temp": "Predomina el calor en el año",
         "precipitacion": "2.000-3.500mm/año",
-        "est_pre": "Hay más lluvia en una temporada";
+        "est_pre": "Hay más lluvia en una temporada",
         "altitud": "100-500m.s.n.m.",
         "est_alt": "Predomina la llanura",
         "cultivos": [
