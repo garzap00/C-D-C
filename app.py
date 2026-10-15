@@ -231,13 +231,13 @@ if menu == "Inicio & Dashboard":
             sc1, sc2 = st.columns(2)
             with sc1:
                 st.image(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
+                    "https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Caña de azucar:</h4><p> La caña de azúcar se cultiva principalmente en el Valle del Cauca. Necesita clima cálido, agua y suelos adecuados. Se utiliza para producir azúcar, panela y otros productos industriales.</p>", unsafe_allow_html=True)
             with sc2:
                 st.image(
-                    "https://blog.mentta.com/wp-content/uploads/2024/06/pexels-daniel-dan-47825192-7543155-scaled.jpg",
+                    "https://dulcesdiabeticos.com/wp-content/uploads/2019/12/platano-y-diabetes-puede-un-diabetico-comer-platanos_opt.png",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como Chocó. Se utiliza para preparar patacones, sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)
