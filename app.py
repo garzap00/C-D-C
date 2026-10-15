@@ -139,7 +139,7 @@ DATOS_TERRITORIOS = {
         "est_humedad": "La temporada de lluvia es más humeda",
         "temp": "24-30°C",
         "est_temp": "Predomina el calor en el año",
-        "precipitacion": "2.000-3.500mm/año",
+        "precipitacion": "2.750mm/año",
         "est_pre": "Hay más lluvia en una temporada",
         "altitud": "100-500m.s.n.m.",
         "est_alt": "Predomina la llanura",
