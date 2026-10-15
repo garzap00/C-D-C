@@ -297,20 +297,20 @@ if menu == "Inicio & Dashboard":
 # Region Insular
     with v2:
         with st.container(border=True):
-            st.markdown("<h3>Región Orinoquía:<h3>", unsafe_allow_html=True)
+            st.markdown("<h3>Región Insular:<h3>", unsafe_allow_html=True)
             vs1, vs2 = st.columns(2)
             with vs1:
                 st.image(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10",
+                    "https://agrotendencia.tv/wp-content/uploads/2020/07/agrotendencia-agropedia-cultivo-de-coco-10.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Arroz:</h4><p> El arroz se cultiva principalmente en Meta y Casanare. Necesita temperaturas cálidas, agua disponible y un manejo adecuado del suelo. Es un alimento básico que se consume en muchos hogares colombianos.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Coco:</h4><p>Se encuentra en islas como San Andrés y Providencia, donde el clima tropical favorece su crecimiento. Se utiliza para preparar arroz con coco, dulces y leche de coco. También forma parte de la gastronomía tradicional de las islas.</p>", unsafe_allow_html=True)
             with vs2:
                 st.image(
-                    "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
+                    "https://www.cocinadominicana.com/wp-content/uploads/2022/05/batata-mercado-dinamarca-DSC2578-2.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Palma de Aceite:</h4><p> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>batata:</h4><p> Es un tubérculo que puede cultivarse en zonas tropicales como parte de la agricultura local. Necesita suelos sueltos y buen drenaje para desarrollarse. Se consume cocida, asada o en preparaciones dulces y saladas.</p>", unsafe_allow_html=True)
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
