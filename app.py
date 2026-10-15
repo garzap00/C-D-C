@@ -106,29 +106,31 @@ def crear_post_db(usuario, texto):
 
 # --- FUNCIONES DE COMENTARIOS / RESPUESTAS ---
 def obtener_comentarios_db(post_id):
-    try:
-        response = (
-            supabase.table("comentarios")
-            .select("*")
-            .eq("post_id", post_id)
-            .order("id", asc=True)
-            .execute()
-        )
-        return response.data if response.data else []
-    except Exception:
-        return []
+  try:
+    response = (
+        supabase.table("comentarios")
+        .select("*")
+        .eq("post_id", post_id)
+        .order("id", asc=True)
+        .execute()
+    )
+    return response.data if response.data else []
+  except Exception as e:
+    st.error(f"Error al leer comentarios del post {post_id}: {e}")
+    return []
+
 
 def crear_comentario_db(post_id, usuario, texto):
-    try:
-        supabase.table("comentarios").insert({
-            "post_id": post_id,
-            "usuario": usuario,
-            "texto": texto,
-        }).execute()
-        return True
-    except Exception as e:
-        st.error(f"Error al responder: {e}")
-        return False
+  try:
+    supabase.table("comentarios").insert({
+        "post_id": post_id,
+        "usuario": usuario,
+        "texto": texto,
+    }).execute()
+    return True
+  except Exception as e:
+    st.error(f"Error al guardar comentario: {e}")
+    return False
 
 # --- BASE DE DATOS DINÁMICA POR TERRITORIO ---
 DATOS_TERRITORIOS = {
