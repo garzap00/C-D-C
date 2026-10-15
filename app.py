@@ -191,9 +191,9 @@ if menu == "Inicio & Dashboard":
                 SENA • Proyecto Agropecuario
             </span>
             <h1 style="font-size: 38px; margin-top: 15px;">
-                Sembramos Conocimiento y 
+                Sembramos Conocimiento, 
                 <span style="color:#d1b052;">
-                    Sembramos Futuro
+                    Cosechamos Futuro
                 </span>
             </h1>
             <p style="font-size: 15px; color: #dce6df; max-width: 700px;">
