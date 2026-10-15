@@ -249,7 +249,7 @@ if menu == "Inicio & Dashboard":
             ss1, ss2 = st.columns(2)
             with ss1:
                 st.image(
-                    "https://blog.ucc.edu.co/hs-fs/hubfs/proceso-produccion-cafe.jpg?width=5760&height=3840&name=proceso-produccion-cafe.jpg",
+                    "https://apasionadosporelcafe.com/wp-content/uploads/2021/11/shutterstock_559059673-1.jpg",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Café:</h4><p> El café se cultiva en departamentos como Antioquia, Huila, Caldas, Quindío y Risaralda. Crece bien en zonas con temperaturas adecuadas y lluvias suficientes. Sus granos se procesan para producir una de las bebidas más conocidas de Colombia.</p>", unsafe_allow_html=True)
