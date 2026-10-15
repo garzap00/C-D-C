@@ -494,7 +494,7 @@ if menu == "Inicio & Dashboard":
     st.markdown("<br><br>", unsafe_allow_html=True)
 # CAMBIAR SELEC REGION PARA DATOS    
     st.markdown("#### 🗺️ Seleccionar Región")
-    col_t1 = st.columns(1)
+    col_t1, = st.columns(1)
 
     with col_t1:
         territorio_elegido = st.selectbox("Región", list(DATOS_TERRITORIOS.keys()))
