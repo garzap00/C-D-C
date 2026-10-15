@@ -310,7 +310,7 @@ if menu == "Inicio & Dashboard":
                     "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Palma de Aceite:</hp> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Palma de Aceite:</h4><p> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
