@@ -210,7 +210,7 @@ if menu == "Inicio & Dashboard":
 
     with c1:
         with st.container(border=True):
-            st.markdown("<h3>Region Caribe:<h3>", unsave_allow_html=True)
+            st.markdown("<h3>Region Caribe:<h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
                 st.markdown("<h4>Banano:</h4><p> El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante, suelo fértil y cuidados para crecer. Se consume fresco y también se vende a otros países.</p>", unsafe_allow_html=True)
