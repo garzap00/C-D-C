@@ -143,6 +143,25 @@ DATOS_TERRITORIOS = {
         "est_pre": "Estación seca prolongada, lluvias concentradas",
         "altitud": "0-200 m.s.n.m.",
         "est_alt": "Llanura costera y valles bajos",
+        "cultivos": [
+            {"nombre": "🌽 Maíz", "desc": "Cultivo presente en casi todo el Caribe"},
+            {"nombre": "🌿 Yuca", "desc": "Base alimentaria de la región"},
+            {"nombre": "🌴 Palma de Aceite", "desc": "Importante en Cesar y Magdalena"},
+            {"nombre": "🍌 Banano", "desc": "Principalmente en Magdalena"},
+            {"nombre": "🌾 Arroz", "desc": "Bolívar, Cesar, Córdoba y Sucre"},
+            {"nombre": "🥭 Mango", "desc": "Atlántico y Magdalena"},
+            {"nombre": "🥔 Ñame", "desc": "Bolívar, Córdoba y Sucre"},
+            {"nombre": "🍫 Cacao", "desc": "Presente en Cesar"},
+        ],
+        "departamentos": {
+            "Atlántico": ["yuca", "maíz", "mango", "guayaba"],
+            "Bolívar": ["arroz", "yuca", "ñame", "maíz"],
+            "Cesar": ["palma de aceite", "arroz", "maíz", "cacao"],
+            "Córdoba": ["maíz", "arroz", "yuca", "ñame"],
+            "La Guajira": ["maíz", "fríjol", "yuca", "melón"],
+            "Magdalena": ["banano", "palma de aceite", "arroz", "mango"],
+            "Sucre": ["yuca", "ñame", "maíz", "arroz"],
+        }
     },
     "Pacífica": {
         "humedad": "80-95%",
@@ -153,6 +172,22 @@ DATOS_TERRITORIOS = {
         "est_pre": "Lluvias casi todo el año, especialmente en Chocó",
         "altitud": "0-1.500 m.s.n.m.",
         "est_alt": "Desde costa hasta estribaciones de la cordillera",
+        "cultivos": [
+            {"nombre": "🍌 Plátano", "desc": "Cultivo importante en Chocó"},
+            {"nombre": "☕ Café", "desc": "Valle del Cauca, Cauca y Nariño"},
+            {"nombre": "🍫 Cacao", "desc": "Presente en toda la región"},
+            {"nombre": "🌱 Caña de Azúcar", "desc": "Principalmente en Valle del Cauca"},
+            {"nombre": "🥑 Aguacate", "desc": "Valle del Cauca"},
+            {"nombre": "🥔 Papa", "desc": "Cauca y Nariño"},
+            {"nombre": "🌿 Yuca", "desc": "Chocó"},
+            {"nombre": "🍇 Borojó", "desc": "Fruto característico del Chocó"},
+        ],
+        "departamentos": {
+            "Chocó": ["plátano", "yuca", "arroz", "cacao", "borojó"],
+            "Valle del Cauca": ["caña de azúcar", "café", "cacao", "aguacate"],
+            "Cauca": ["café", "papa", "maíz", "caña panelera", "cacao"],
+            "Nariño": ["papa", "café", "maíz", "cacao", "caña panelera"],
+        }
     },
     "Andina": {
         "humedad": "60-80%",
@@ -163,6 +198,28 @@ DATOS_TERRITORIOS = {
         "est_pre": "Dos temporadas de lluvia al año",
         "altitud": "1.000-3.000 m.s.n.m.",
         "est_alt": "Cordilleras y altiplanos",
+        "cultivos": [
+            {"nombre": "☕ Café", "desc": "Cultivo estrella de la región"},
+            {"nombre": "🥑 Aguacate", "desc": "Muy importante en varios departamentos"},
+            {"nombre": "🍌 Plátano / Banano", "desc": "Antioquia, Caldas, Quindío y Risaralda"},
+            {"nombre": "🍫 Cacao", "desc": "Presente en casi toda la región"},
+            {"nombre": "🥔 Papa", "desc": "Boyacá y Cundinamarca"},
+            {"nombre": "🌾 Arroz", "desc": "Huila, Norte de Santander y Tolima"},
+            {"nombre": "🍊 Cítricos", "desc": "Caldas, Quindío y Santander"},
+            {"nombre": "🍍 Piña", "desc": "Santander"},
+        ],
+        "departamentos": {
+            "Antioquia": ["café", "banano", "cacao", "aguacate", "caña panelera"],
+            "Boyacá": ["papa", "cebolla", "zanahoria", "arveja", "maíz"],
+            "Caldas": ["café", "plátano", "aguacate", "cítricos"],
+            "Cundinamarca": ["papa", "fresa", "arveja", "tomate", "zanahoria"],
+            "Huila": ["café", "arroz", "cacao", "maíz", "granadilla"],
+            "Norte de Santander": ["café", "cacao", "arroz", "cebolla", "caña panelera"],
+            "Quindío": ["café", "plátano", "aguacate", "cítricos"],
+            "Risaralda": ["café", "plátano", "aguacate", "cacao"],
+            "Santander": ["café", "cacao", "caña panelera", "piña", "cítricos"],
+            "Tolima": ["arroz", "café", "maíz", "aguacate"],
+        }
     },
     "Orinoquía": {
         "humedad": "70-85%",
@@ -173,6 +230,22 @@ DATOS_TERRITORIOS = {
         "est_pre": "Una sola temporada de lluvias intensa",
         "altitud": "100-500 m.s.n.m.",
         "est_alt": "Llanuras y sabanas",
+        "cultivos": [
+            {"nombre": "🌾 Arroz", "desc": "Cultivo principal de la región"},
+            {"nombre": "🌽 Maíz", "desc": "Presente en todos los departamentos"},
+            {"nombre": "🌴 Palma de Aceite", "desc": "Casanare y Meta"},
+            {"nombre": "🍌 Plátano", "desc": "Arauca"},
+            {"nombre": "🌿 Yuca", "desc": "Arauca, Casanare y Vichada"},
+            {"nombre": "🍫 Cacao", "desc": "Arauca y Meta"},
+            {"nombre": "🌱 Soya", "desc": "Meta"},
+            {"nombre": "🥜 Marañón", "desc": "Vichada"},
+        ],
+        "departamentos": {
+            "Arauca": ["arroz", "plátano", "yuca", "maíz", "cacao"],
+            "Casanare": ["arroz", "palma de aceite", "maíz", "yuca"],
+            "Meta": ["arroz", "maíz", "soya", "cacao", "palma de aceite"],
+            "Vichada": ["yuca", "maíz", "marañón"],
+        }
     },
     "Amazónica": {
         "humedad": "80-90%",
@@ -183,6 +256,24 @@ DATOS_TERRITORIOS = {
         "est_pre": "Lluvias frecuentes durante casi todo el año",
         "altitud": "100-400 m.s.n.m.",
         "est_alt": "Selva baja y planicies",
+        "cultivos": [
+            {"nombre": "🌿 Yuca", "desc": "Base alimentaria de la Amazonia"},
+            {"nombre": "🍌 Plátano", "desc": "Presente en varios departamentos"},
+            {"nombre": "🍫 Cacao", "desc": "Caquetá, Guaviare y Putumayo"},
+            {"nombre": "🍍 Piña", "desc": "Guainía, Guaviare y Vaupés"},
+            {"nombre": "🌽 Maíz", "desc": "Caquetá y Guaviare"},
+            {"nombre": "🍇 Copoazú / Arazá", "desc": "Frutos amazónicos (Amazonas)"},
+            {"nombre": "🌴 Chontaduro", "desc": "Putumayo"},
+            {"nombre": "🌳 Caucho", "desc": "Caquetá"},
+        ],
+        "departamentos": {
+            "Amazonas": ["yuca", "plátano", "copoazú", "arazá", "cacao"],
+            "Caquetá": ["cacao", "plátano", "yuca", "maíz", "caucho"],
+            "Guainía": ["yuca", "piña", "ají", "frutas amazónicas"],
+            "Guaviare": ["yuca", "cacao", "plátano", "piña", "maíz"],
+            "Putumayo": ["cacao", "café", "plátano", "yuca", "chontaduro"],
+            "Vaupés": ["yuca", "piña", "ají", "frutas amazónicas"],
+        }
     },
     "Insular": {
         "humedad": "70-85%",
@@ -193,6 +284,18 @@ DATOS_TERRITORIOS = {
         "est_pre": "Lluvias moderadas, influenciadas por el Caribe",
         "altitud": "0-100 m.s.n.m.",
         "est_alt": "Islas bajas de origen coralino",
+        "cultivos": [
+            {"nombre": "🥥 Coco", "desc": "Cultivo característico de las islas"},
+            {"nombre": "🌿 Yuca", "desc": "Presente en las tres islas"},
+            {"nombre": "🍠 Batata", "desc": "San Andrés, Providencia y Santa Catalina"},
+            {"nombre": "🍌 Plátano", "desc": "Providencia"},
+            {"nombre": "🍍 Frutas Tropicales", "desc": "Cultivos a pequeña escala"},
+        ],
+        "departamentos": {
+            "San Andrés": ["coco", "yuca", "batata", "frutas tropicales"],
+            "Providencia": ["coco", "yuca", "batata", "plátano", "frutas tropicales"],
+            "Santa Catalina": ["yuca", "batata", "frutas locales"],
+        }
     },
 }
 
