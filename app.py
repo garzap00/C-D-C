@@ -240,7 +240,7 @@ if menu == "Inicio & Dashboard":
                     "https://dulcesdiabeticos.com/wp-content/uploads/2019/12/platano-y-diabetes-puede-un-diabetico-comer-platanos_opt.png",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como el Chocó. Se utiliza para preparar patacones, sopas y otros alimentos de la cosina tradicional. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como el Chocó. Se utiliza para preparar patacones como complemento en sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)
         c1, c2 = st.columns(2)
 # Region Caribe
     with c1:
