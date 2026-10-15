@@ -241,15 +241,14 @@ if menu == "Inicio & Dashboard":
                     use_container_width=True,
                 )
                 st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como el Chocó. Se utiliza para preparar patacones como complemento en sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)
-    s1, s2 = st.columns(2)
-# Region Andina
+    # Region Andina
     with s1:
         with st.container(border=True):
             st.markdown("<h3>Región Andina:<h3>", unsafe_allow_html=True)
             ss1, ss2 = st.columns(2)
             with ss1:
                 st.image(
-                    "https://apasionadosporelcafe.com/wp-content/uploads/2021/11/shutterstock_559059673-1.jpg",
+                    "https://blog.ucc.edu.co/hs-fs/hubfs/proceso-produccion-cafe.jpg?width=5760&height=3840&name=proceso-produccion-cafe.jpg",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Café:</h4><p> El café se cultiva en departamentos como Antioquia, Huila, Caldas, Quindío y Risaralda. Crece bien en zonas con temperaturas adecuadas y lluvias suficientes. Sus granos se procesan para producir una de las bebidas más conocidas de Colombia.</p>", unsafe_allow_html=True)
@@ -275,9 +274,78 @@ if menu == "Inicio & Dashboard":
                     "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Palma de Aceite:</h4><p> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)    
-
-
+                st.markdown("<h4>Palma de Aceite:</h4><p> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)
+    # Region Andina
+    with s1:
+        with st.container(border=True):
+            st.markdown("<h3>Región Andina:<h3>", unsafe_allow_html=True)
+            ss1, ss2 = st.columns(2)
+            with ss1:
+                st.image(
+                    "https://blog.ucc.edu.co/hs-fs/hubfs/proceso-produccion-cafe.jpg?width=5760&height=3840&name=proceso-produccion-cafe.jpg",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Café:</h4><p> El café se cultiva en departamentos como Antioquia, Huila, Caldas, Quindío y Risaralda. Crece bien en zonas con temperaturas adecuadas y lluvias suficientes. Sus granos se procesan para producir una de las bebidas más conocidas de Colombia.</p>", unsafe_allow_html=True)
+            with ss2:
+                st.image(
+                    "https://cdn.portalfruticola.com/2020/09/91882f55-potatoes-2543686_1920.jpg",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Papa:</h4><p> La papa se cultiva principalmente en zonas frías de Boyacá, Cundinamarca y Nariño. Necesita suelos fértiles y buen drenaje. Se utiliza en sopas, purés, frituras y muchos otros alimentos.</p>", unsafe_allow_html=True)
+# Region Orinoquía
+    with s2:
+        with st.container(border=True):
+            st.markdown("<h3>Región Orinoquía:<h3>", unsafe_allow_html=True)
+            ss1, ss2 = st.columns(2)
+            with ss1:
+                st.image(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Arroz:</h4><p> El arroz se cultiva principalmente en Meta y Casanare. Necesita temperaturas cálidas, agua disponible y un manejo adecuado del suelo. Es un alimento básico que se consume en muchos hogares colombianos.</p>", unsafe_allow_html=True)
+            with ss2:
+                st.image(
+                    "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
+                    use_container_width=True,
+                
+                st.markdown("<h4>Palma de Aceite:</hp> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)
+    # Region Amazonía
+    v1, v2 = st.columns(2)
+    with s1:
+        with st.container(border=True):
+            st.markdown("<h3>Región Amazonía:<h3>", unsafe_allow_html=True)
+            vs1, vs2 = st.columns(2)
+            with vs1:
+                st.image(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopDO0LRj2yZQLwBAibyEyJwTCgrPkPOq8joBMAYGKLBeD-asSOrw7e3h2&s=10",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Cacao:</h4><p> Se cultiva en departamentos como Caquetá y Putumayo. Crece en ambientes cálidos y húmedos y necesita cuidados adecuados. Sus semillas se utilizan para producir chocolate y otros productos derivados.</p>", unsafe_allow_html=True)
+            with vs2:
+                st.image(
+                    "https://radionacional-v3.s3.amazonaws.com/s3fs-public/node/article/field_image/Produccion%20de%20chontaduro.jpeg",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Chontaduro:</h4><p> Es un fruto tropical presente en distintas zonas de la Amazonía colombiana. Se consume principalmente cocido y también se utiliza para preparar harinas. Es un alimento tradicional para varias comunidades.</p>", unsafe_allow_html=True)
+# Region Insular
+    with v2:
+        with st.container(border=True):
+            st.markdown("<h3>Región Orinoquía:<h3>", unsafe_allow_html=True)
+            vs1, vs2 = st.columns(2)
+            with vs1:
+                st.image(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10",
+                    use_container_width=True,
+                )
+                st.markdown("<h4>Arroz:</h4><p> El arroz se cultiva principalmente en Meta y Casanare. Necesita temperaturas cálidas, agua disponible y un manejo adecuado del suelo. Es un alimento básico que se consume en muchos hogares colombianos.</p>", unsafe_allow_html=True)
+            with vs2:
+                st.image(
+                    "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
+                    use_container_width=True,
+                )4><
+                st.markdown("<h4>Palma de Aceite:</hp> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)
+    s1, s2 = st.columns(2)
+    
     st.markdown("<br><br>", unsafe_allow_html=True)
 
     
@@ -306,6 +374,7 @@ if menu == "Inicio & Dashboard":
 
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 📊 Datos en Tiempo Real: *{territorio_elegido}*")
+
     # --- TARJETAS KPI ---
     k1, k2, k3, k4 = st.columns(4)
     with k1:
