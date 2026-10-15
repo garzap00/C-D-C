@@ -203,7 +203,220 @@ if menu == "Inicio & Dashboard":
         """,
         unsafe_allow_html=True,
     )
+# -------------------------------
+# ESTILOS DE CAMPO DIGITAL COLOMBIA
+# -------------------------------
+st.markdown("""
+<style>
+/* Fondo de la sección */
+.problem-solution {
+    background: #f7f7ef;
+    color: #183b2d;
+    padding: 35px 30px;
+    border-radius: 18px;
+    margin-top: 25px;
+    font-family: sans-serif;
+}
 
+/* Títulos */
+.section-title {
+    display: inline-block;
+    background: #174b35;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.section-title span {
+    color: #f3c84b;
+}
+
+/* Texto */
+.section-text {
+    color: #29465b;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Tarjetas */
+.info-card {
+    background: #e8efdc;
+    border-radius: 14px;
+    padding: 16px 10px;
+    text-align: center;
+    min-height: 125px;
+    margin-top: 10px;
+    color: #214a35;
+    border: 1px solid #dce7d1;
+}
+
+.info-card .symbol {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Recuadro final */
+.final-message {
+    background: #f9e8a9;
+    color: #214a35;
+    padding: 20px;
+    border-radius: 18px;
+    line-height: 1.8;
+    margin-top: 20px;
+    border-left: 5px solid #d9b744;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 700px) {
+    .problem-solution {
+        padding: 20px 15px;
+    }
+
+    .section-title {
+        font-size: 21px;
+    }
+
+    .section-text {
+        font-size: 15px;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+
+
+# -------------------------------
+# CONTENIDO PRINCIPAL
+# -------------------------------
+st.markdown('<div class="problem-solution">', unsafe_allow_html=True)
+
+col_problema, col_solucion = st.columns(
+    [1, 1.05],
+    gap="large"
+)
+
+# -------------------------------
+# EL PROBLEMA
+# -------------------------------
+with col_problema:
+
+    st.markdown("""
+    <div class="section-title">
+        El <span>problema</span>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="section-text">
+        Muchas personas del campo quieren cultivar sus propios
+        alimentos, mejorar sus cosechas o comenzar un negocio
+        agrícola, pero no saben por dónde empezar. Algunas
+        desconocen qué cultivos se adaptan a su región, qué tipo
+        de suelo necesitan, en qué época deben sembrar o cómo
+        cuidar sus plantas.
+        <br><br>
+        Otras tienen dificultades para encontrar información
+        confiable sobre cómo vender sus productos o resolver
+        los problemas que aparecen durante el cultivo.
+        <br><br>
+        Esta falta de información puede provocar pérdidas de
+        tiempo, dinero y cosechas. Además, en algunas zonas
+        rurales es difícil acceder a internet o encontrar
+        orientación adaptada al territorio.
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Tarjetas informativas
+    tarjetas = [
+        ("🌱", "No saben qué cultivos se adaptan a su región."),
+        ("🌾", "Desconocen el tipo de suelo que necesitan."),
+        ("📅", "No conocen la época adecuada para sembrar."),
+        ("🐛", "Tienen problemas con sus cultivos y plagas."),
+        ("📶", "En algunas zonas es difícil acceder a internet.")
+    ]
+
+    tarjetas_cols = st.columns(2)
+
+    for i, (icono, texto) in enumerate(tarjetas):
+        with tarjetas_cols[i % 2]:
+            st.markdown(f"""
+            <div class="info-card">
+                <div class="symbol">{icono}</div>
+                <p>{texto}</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="section-text" style="margin-top:20px;">
+        La falta de información puede dificultar el crecimiento
+        de los proyectos agrícolas y afectar los ingresos de
+        las familias campesinas.
+    </div>
+    """, unsafe_allow_html=True)
+
+
+# -------------------------------
+# LA SOLUCIÓN
+# -------------------------------
+with col_solucion:
+
+    st.markdown("""
+    <div class="section-title">
+        La <span>solución</span>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="section-text">
+        <b>C.D.C. (Campo Digital Colombia)</b> busca reducir
+        estas dificultades mediante una página que reúne
+        información útil para las personas del campo.
+        <br><br>
+        Permite aprender sobre los cultivos desde cero, conocer
+        qué productos se pueden sembrar en diferentes regiones
+        de Colombia y consultar recomendaciones para su cuidado.
+        <br><br>
+        También cuenta con un foro donde las personas pueden
+        compartir sus dudas, responder preguntas de otros
+        agricultores y buscar orientación sobre cultivos,
+        ventas y otras actividades agrícolas.
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Imagen del agricultor usando tecnología
+    # Cambia esta ruta por la ubicación de tu imagen
+    try:
+        st.image(
+            "assets/agricultor_tecnologia.jpg",
+            use_container_width=True
+        )
+    except Exception:
+        st.info(
+            "Agrega una imagen en "
+            "assets/agricultor_tecnologia.jpg"
+        )
+
+    st.markdown("""
+    <div class="final-message">
+        <b>🌱 Sembramos conocimiento, cosechamos futuro.</b>
+        <br><br>
+        Queremos que la falta de conocimientos o de orientación
+        no sea un obstáculo para quienes desean trabajar la
+        tierra, aprovechar mejor sus recursos y encontrar
+        nuevas oportunidades en la agricultura.
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
     # Introducción y Título principal
     st.markdown("<h2>Regiones</h2><p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>lo más sembrado</p>", unsafe_allow_html=True)
     c1, c2 = st.columns(2)
