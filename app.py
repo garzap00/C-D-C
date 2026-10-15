@@ -213,12 +213,14 @@ if menu == "Inicio & Dashboard":
             st.markdown("<h3>Región Caribe:<h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
+             with st.container(border=True):
                 st.image(
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Banano:</h4><p> El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante, suelo fértil y cuidados para crecer. Se consume fresco y también se vende a otros países.</p>", unsafe_allow_html=True)
             with sc2:
+             with st.container(border=True):  
                 st.image(
                     "https://blog.mentta.com/wp-content/uploads/2024/06/pexels-daniel-dan-47825192-7543155-scaled.jpg",
                     use_container_width=True,
@@ -230,12 +232,14 @@ if menu == "Inicio & Dashboard":
             st.markdown("<h3>Región Pacífica:<h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
+             with st.container(border=True):   
                 st.image(
                     "https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Caña de azucar:</h4><p> La caña de azúcar se cultiva principalmente   en el Valle del Cauca. Necesita clima cálido, agua y suelos adecuados. Se utiliza para producir azúcar, panela y otros productos industriales.</p>", unsafe_allow_html=True)
             with sc2:
+              with st.container(border=True):  
                 st.image(
                     "https://dulcesdiabeticos.com/wp-content/uploads/2019/12/platano-y-diabetes-puede-un-diabetico-comer-platanos_opt.png",
                     use_container_width=True,
@@ -248,12 +252,14 @@ if menu == "Inicio & Dashboard":
             st.markdown("<h3>Región Andina:<h3>", unsafe_allow_html=True)
             ss1, ss2 = st.columns(2)
             with ss1:
+              with st.container(border=True):  
                 st.image(
                     "https://apasionadosporelcafe.com/wp-content/uploads/2021/11/shutterstock_559059673-1.jpg",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Café:</h4><p> El café se cultiva en departamentos como Antioquia, Huila, Caldas, Quindío y Risaralda. Crece bien en zonas con temperaturas adecuadas y lluvias suficientes. Sus granos se procesan para producir una de las bebidas más conocidas de Colombia.</p>", unsafe_allow_html=True)
             with ss2:
+              with st.container(border=True):  
                 st.image(
                     "https://cdn.portalfruticola.com/2020/09/91882f55-potatoes-2543686_1920.jpg",
                     use_container_width=True,
@@ -265,12 +271,14 @@ if menu == "Inicio & Dashboard":
             st.markdown("<h3>Región Orinoquía:<h3>", unsafe_allow_html=True)
             ss1, ss2 = st.columns(2)
             with ss1:
+              with st.container(border=True):  
                 st.image(
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Arroz:</h4><p> El arroz se cultiva principalmente en Meta y Casanare. Necesita temperaturas cálidas, agua disponible y un manejo adecuado del suelo. Es un alimento básico que se consume en muchos hogares colombianos.</p>", unsafe_allow_html=True)
             with ss2:
+              with st.container(border=True):  
                 st.image(
                     "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
                     use_container_width=True,
@@ -283,12 +291,14 @@ if menu == "Inicio & Dashboard":
             st.markdown("<h3>Región Amazonía:<h3>", unsafe_allow_html=True)
             vs1, vs2 = st.columns(2)
             with vs1:
+              with st.container(border=True):  
                 st.image(
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopDO0LRj2yZQLwBAibyEyJwTCgrPkPOq8joBMAYGKLBeD-asSOrw7e3h2&s=10",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Cacao:</h4><p> Se cultiva en departamentos como Caquetá y Putumayo. Crece en ambientes cálidos y húmedos y necesita cuidados adecuados. Sus semillas se utilizan para producir chocolate y otros productos derivados.</p>", unsafe_allow_html=True)
             with vs2:
+              with st.container(border=True):  
                 st.image(
                     "https://radionacional-v3.s3.amazonaws.com/s3fs-public/node/article/field_image/Produccion%20de%20chontaduro.jpeg",
                     use_container_width=True,
@@ -300,12 +310,14 @@ if menu == "Inicio & Dashboard":
             st.markdown("<h3>Región Insular:<h3>", unsafe_allow_html=True)
             vs1, vs2 = st.columns(2)
             with vs1:
+              with st.container(border=True):  
                 st.image(
                     "https://agrotendencia.tv/wp-content/uploads/2020/07/agrotendencia-agropedia-cultivo-de-coco-7.jpg",
                     use_container_width=True,
                 )
                 st.markdown("<h4>Coco:</h4><p>Se encuentra en islas como San Andrés y Providencia, donde el clima tropical favorece su crecimiento. Se utiliza para preparar arroz con coco, dulces y leche de coco. También forma parte de la gastronomía tradicional de las islas.</p>", unsafe_allow_html=True)
             with vs2:
+              with st.container(border=True):  
                 st.image(
                     "https://www.cocinadominicana.com/wp-content/uploads/2022/05/batata-mercado-dinamarca-DSC2578-2.jpg",
                     use_container_width=True,
