@@ -111,7 +111,7 @@ def obtener_comentarios_db(post_id):
         supabase.table("comentarios")
         .select("*")
         .eq("post_id", post_id)
-        .order("id", asc=True)
+        .order("id", desc=False)
         .execute()
     )
     return response.data if response.data else []
