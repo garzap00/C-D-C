@@ -203,342 +203,288 @@ if menu == "Inicio & Dashboard":
         """,
         unsafe_allow_html=True,
     )
-# -------------------------------
-# ESTILOS DE CAMPO DIGITAL COLOMBIA
-# -------------------------------
-st.markdown("""
-<style>
-/* Fondo de la sección */
-.problem-solution {
-    background: #f7f7ef;
-    color: #183b2d;
-    padding: 35px 30px;
-    border-radius: 18px;
-    margin-top: 25px;
-    font-family: sans-serif;
-}
 
-/* Títulos */
-.section-title {
-    display: inline-block;
-    background: #174b35;
-    color: white;
-    padding: 10px 22px;
-    border-radius: 12px;
-    font-size: 25px;
-    font-weight: 800;
-    margin-bottom: 18px;
-}
-
-.section-title span {
-    color: #f3c84b;
-}
-
-/* Texto */
-.section-text {
-    color: #29465b;
-    font-size: 16px;
-    line-height: 1.8;
-    text-align: justify;
-}
-
-/* Tarjetas */
-.info-card {
-    background: #e8efdc;
-    border-radius: 14px;
-    padding: 16px 10px;
-    text-align: center;
-    min-height: 125px;
-    margin-top: 10px;
-    color: #214a35;
-    border: 1px solid #dce7d1;
-}
-
-.info-card .symbol {
-    font-size: 30px;
-    margin-bottom: 8px;
-}
-
-.info-card p {
-    font-size: 13px;
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* Recuadro final */
-.final-message {
-    background: #f9e8a9;
-    color: #214a35;
-    padding: 20px;
-    border-radius: 18px;
-    line-height: 1.8;
-    margin-top: 20px;
-    border-left: 5px solid #d9b744;
-}
-
-/* Ajustes para móviles */
-@media (max-width: 700px) {
+    # Estilos CSS específicos de la sección Problema / Solución
+    st.markdown("""
+    <style>
     .problem-solution {
-        padding: 20px 15px;
+        background: #f7f7ef;
+        color: #183b2d;
+        padding: 35px 30px;
+        border-radius: 18px;
+        margin-top: 25px;
+        font-family: sans-serif;
     }
-
     .section-title {
-        font-size: 21px;
+        display: inline-block;
+        background: #174b35;
+        color: white;
+        padding: 10px 22px;
+        border-radius: 12px;
+        font-size: 25px;
+        font-weight: 800;
+        margin-bottom: 18px;
     }
-
+    .section-title span {
+        color: #f3c84b;
+    }
     .section-text {
-        font-size: 15px;
+        color: #29465b;
+        font-size: 16px;
+        line-height: 1.8;
+        text-align: justify;
     }
-}
-</style>
-""", unsafe_allow_html=True)
-
-
-# -------------------------------
-# CONTENIDO PRINCIPAL
-# -------------------------------
-st.markdown('<div class="problem-solution">', unsafe_allow_html=True)
-
-col_problema, col_solucion = st.columns(
-    [1, 1.05],
-    gap="large"
-)
-
-# -------------------------------
-# EL PROBLEMA
-# -------------------------------
-with col_problema:
-
-    st.markdown("""
-    <div class="section-title">
-        El <span>problema</span>
-    </div>
+    .info-card {
+        background: #e8efdc;
+        border-radius: 14px;
+        padding: 16px 10px;
+        text-align: center;
+        min-height: 125px;
+        margin-top: 10px;
+        color: #214a35;
+        border: 1px solid #dce7d1;
+    }
+    .info-card .symbol {
+        font-size: 30px;
+        margin-bottom: 8px;
+    }
+    .info-card p {
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 0;
+    }
+    .final-message {
+        background: #f9e8a9;
+        color: #214a35;
+        padding: 20px;
+        border-radius: 18px;
+        line-height: 1.8;
+        margin-top: 20px;
+        border-left: 5px solid #d9b744;
+    }
+    </style>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <div class="section-text">
-        Muchas personas del campo quieren cultivar sus propios
-        alimentos, mejorar sus cosechas o comenzar un negocio
-        agrícola, pero no saben por dónde empezar. Algunas
-        desconocen qué cultivos se adaptan a su región, qué tipo
-        de suelo necesitan, en qué época deben sembrar o cómo
-        cuidar sus plantas.
-        <br><br>
-        Otras tienen dificultades para encontrar información
-        confiable sobre cómo vender sus productos o resolver
-        los problemas que aparecen durante el cultivo.
-        <br><br>
-        Esta falta de información puede provocar pérdidas de
-        tiempo, dinero y cosechas. Además, en algunas zonas
-        rurales es difícil acceder a internet o encontrar
-        orientación adaptada al territorio.
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown('<div class="problem-solution">', unsafe_allow_html=True)
 
-    # Tarjetas informativas
-    tarjetas = [
-        ("🌱", "No saben qué cultivos se adaptan a su región."),
-        ("🌾", "Desconocen el tipo de suelo que necesitan."),
-        ("📅", "No conocen la época adecuada para sembrar."),
-        ("🐛", "Tienen problemas con sus cultivos y plagas."),
-        ("📶", "En algunas zonas es difícil acceder a internet.")
-    ]
+    col_problema, col_solucion = st.columns([1, 1.05], gap="large")
 
-    tarjetas_cols = st.columns(2)
+    # EL PROBLEMA
+    with col_problema:
+        st.markdown("""
+        <div class="section-title">
+            El <span>problema</span>
+        </div>
+        """, unsafe_allow_html=True)
 
-    for i, (icono, texto) in enumerate(tarjetas):
-        with tarjetas_cols[i % 2]:
-            st.markdown(f"""
-            <div class="info-card">
-                <div class="symbol">{icono}</div>
-                <p>{texto}</p>
-            </div>
-            """, unsafe_allow_html=True)
+        st.markdown("""
+        <div class="section-text">
+            Muchas personas del campo quieren cultivar sus propios
+            alimentos, mejorar sus cosechas o comenzar un negocio
+            agrícola, pero no saben por dónde empezar. Algunas
+            desconocen qué cultivos se adaptan a su región, qué tipo
+            de suelo necesitan, en qué época deben sembrar o cómo
+            cuidar sus plantas.
+            <br><br>
+            Otras tienen dificultades para encontrar información
+            confiable sobre cómo vender sus productos o resolver
+            los problemas que aparecen durante el cultivo.
+            <br><br>
+            Esta falta de información puede provocar pérdidas de
+            tiempo, dinero y cosechas. Además, en algunas zonas
+            rurales es difícil acceder a internet o encontrar
+            orientación adaptada al territorio.
+        </div>
+        """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <div class="section-text" style="margin-top:20px;">
-        La falta de información puede dificultar el crecimiento
-        de los proyectos agrícolas y afectar los ingresos de
-        las familias campesinas.
-    </div>
-    """, unsafe_allow_html=True)
+        tarjetas = [
+            ("🌱", "No saben qué cultivos se adaptan a su región."),
+            ("🌾", "Desconocen el tipo de suelo que necesitan."),
+            ("📅", "No conocen la época adecuada para sembrar."),
+            ("🐛", "Tienen problemas con sus cultivos y plagas."),
+            ("📶", "En algunas zonas es difícil acceder a internet.")
+        ]
 
+        tarjetas_cols = st.columns(2)
+        for i, (icono, texto) in enumerate(tarjetas):
+            with tarjetas_cols[i % 2]:
+                st.markdown(f"""
+                <div class="info-card">
+                    <div class="symbol">{icono}</div>
+                    <p>{texto}</p>
+                </div>
+                """, unsafe_allow_html=True)
 
-# -------------------------------
-# LA SOLUCIÓN
-# -------------------------------
-with col_solucion:
+        st.markdown("""
+        <div class="section-text" style="margin-top:20px;">
+            La falta de información puede dificultar el crecimiento
+            de los proyectos agrícolas y afectar los ingresos de
+            las familias campesinas.
+        </div>
+        """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <div class="section-title">
-        La <span>solución</span>
-    </div>
-    """, unsafe_allow_html=True)
+    # LA SOLUCIÓN
+    with col_solucion:
+        st.markdown("""
+        <div class="section-title">
+            La <span>solución</span>
+        </div>
+        """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <div class="section-text">
-        <b>C.D.C. (Campo Digital Colombia)</b> busca reducir
-        estas dificultades mediante una página que reúne
-        información útil para las personas del campo.
-        <br><br>
-        Permite aprender sobre los cultivos desde cero, conocer
-        qué productos se pueden sembrar en diferentes regiones
-        de Colombia y consultar recomendaciones para su cuidado.
-        <br><br>
-        También cuenta con un foro donde las personas pueden
-        compartir sus dudas, responder preguntas de otros
-        agricultores y buscar orientación sobre cultivos,
-        ventas y otras actividades agrícolas.
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown("""
+        <div class="section-text">
+            <b>C.D.C. (Campo Digital Colombia)</b> busca reducir
+            estas dificultades mediante una página que reúne
+            información útil para las personas del campo.
+            <br><br>
+            Permite aprender sobre los cultivos desde cero, conocer
+            qué productos se pueden sembrar en diferentes regiones
+            de Colombia y consultar recomendaciones para su cuidado.
+            <br><br>
+            También cuenta con un foro donde las personas pueden
+            compartir sus dudas, responder preguntas de otros
+            agricultores y buscar orientación sobre cultivos,
+            ventas y otras actividades agrícolas.
+        </div>
+        """, unsafe_allow_html=True)
 
-    # Imagen del agricultor usando tecnología
-    # Cambia esta ruta por la ubicación de tu imagen
-    try:
         st.image(
-            "assets/agricultor_tecnologia.jpg",
+            "https://images.unsplash.com/photo-1595974482597-4f6c1cfc8d62?auto=format&fit=crop&w=800&q=80",
             use_container_width=True
         )
-    except Exception:
-        st.info(
-            "Agrega una imagen en "
-            "assets/agricultor_tecnologia.jpg"
-        )
 
-    st.markdown("""
-    <div class="final-message">
-        <b>🌱 Sembramos conocimiento, cosechamos futuro.</b>
-        <br><br>
-        Queremos que la falta de conocimientos o de orientación
-        no sea un obstáculo para quienes desean trabajar la
-        tierra, aprovechar mejor sus recursos y encontrar
-        nuevas oportunidades en la agricultura.
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown("""
+        <div class="final-message">
+            <b>🌱 Sembramos conocimiento, cosechamos futuro.</b>
+            <br><br>
+            Queremos que la falta de conocimientos o de orientación
+            no sea un obstáculo para quienes desean trabajar la
+            tierra, aprovechar mejor sus recursos y encontrar
+            nuevas oportunidades en la agricultura.
+        </div>
+        """, unsafe_allow_html=True)
 
-st.markdown('</div>', unsafe_allow_html=True)
-    # Introducción y Título principal
+    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # SECCIÓN DE REGIONES Y PRODUCTOS
     st.markdown("<h2>Regiones</h2><p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>lo más sembrado</p>", unsafe_allow_html=True)
+    
     c1, c2 = st.columns(2)
-# Region Caribe
+
+    # Region Caribe
     with c1:
         with st.container(border=True):
-            st.markdown("<h3>Región Caribe:<h3>", unsafe_allow_html=True)
+            st.markdown("<h3>Región Caribe</h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
-             
                 st.image(
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Banano:</h4><p> El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante, suelo fértil y cuidados para crecer. Se consume fresco y también se vende a otros países.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Banano:</h4><p>El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante y suelo fértil.</p>", unsafe_allow_html=True)
             with sc2:
-             
                 st.image(
                     "https://blog.mentta.com/wp-content/uploads/2024/06/pexels-daniel-dan-47825192-7543155-scaled.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Yuca:</h4><p> La yuca se cultiva en departamentos como Bolívar, Córdoba, Sucre y Atlántico. Es resistente a los periodos secos y se utiliza para preparar alimentos como yuca cocida, frita y harinas.</p>", unsafe_allow_html=True)
-# Region Pacífica
+                st.markdown("<h4>Yuca:</h4><p>Se cultiva en Bolívar, Córdoba, Sucre y Atlántico. Es resistente a periodos secos y muy versátil en la cocina.</p>", unsafe_allow_html=True)
+
+    # Region Pacífica
     with c2:
         with st.container(border=True):
-            st.markdown("<h3>Región Pacífica:<h3>", unsafe_allow_html=True)
+            st.markdown("<h3>Región Pacífica</h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
-               
                 st.image(
                     "https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Caña de azucar:</h4><p> La caña de azúcar se cultiva principalmente   en el Valle del Cauca. Necesita clima cálido, agua y suelos adecuados. Se utiliza para producir azúcar, panela y otros productos industriales.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Caña de azúcar:</h4><p>Se cultiva principalmente en el Valle del Cauca. Se utiliza para producir azúcar, panela y otros derivados.</p>", unsafe_allow_html=True)
             with sc2:
-                
                 st.image(
                     "https://dulcesdiabeticos.com/wp-content/uploads/2019/12/platano-y-diabetes-puede-un-diabetico-comer-platanos_opt.png",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Plátano:</h4><p> El plátano se cultiva en zonas cálidas y húmedas, como el Chocó. Se utiliza para preparar patacones como complemento en sopas y otros alimentos. Necesita humedad y un suelo con buen drenaje.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Plátano:</h4><p>Cultivado en zonas cálidas y húmedas como el Chocó. Requiere buena humedad y suelos con drenaje.</p>", unsafe_allow_html=True)
+
     s1, s2 = st.columns(2)
-# Region Andina
+
+    # Region Andina
     with s1:
         with st.container(border=True):
-            st.markdown("<h3>Región Andina:<h3>", unsafe_allow_html=True)
+            st.markdown("<h3>Región Andina</h3>", unsafe_allow_html=True)
             ss1, ss2 = st.columns(2)
             with ss1:
-                
                 st.image(
                     "https://apasionadosporelcafe.com/wp-content/uploads/2021/11/shutterstock_559059673-1.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Café:</h4><p> El café se cultiva en departamentos como Antioquia, Huila, Caldas, Quindío y Risaralda. Crece bien en zonas con temperaturas adecuadas y lluvias suficientes. Sus granos se procesan para producir una de las bebidas más conocidas de Colombia.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Café:</h4><p>Tradicional de Antioquia, Huila, Caldas, Quindío y Risaralda. Produce una de las bebidas más conocidas del mundo.</p>", unsafe_allow_html=True)
             with ss2:
-               
                 st.image(
                     "https://cdn.portalfruticola.com/2020/09/91882f55-potatoes-2543686_1920.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Papa:</h4><p> La papa se cultiva principalmente en zonas frías de Boyacá, Cundinamarca y Nariño. Necesita suelos fértiles y buen drenaje. Se utiliza en sopas, purés, frituras y muchos otros alimentos.</p>", unsafe_allow_html=True)
-# Region Orinoquía
+                st.markdown("<h4>Papa:</h4><p>Principal en zonas frías de Boyacá, Cundinamarca y Nariño. Alimento base en la gastronomía colombiana.</p>", unsafe_allow_html=True)
+
+    # Region Orinoquía
     with s2:
         with st.container(border=True):
-            st.markdown("<h3>Región Orinoquía:<h3>", unsafe_allow_html=True)
+            st.markdown("<h3>Región Orinoquía</h3>", unsafe_allow_html=True)
             ss1, ss2 = st.columns(2)
             with ss1:
-             
                 st.image(
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Arroz:</h4><p> El arroz se cultiva principalmente en Meta y Casanare. Necesita temperaturas cálidas, agua disponible y un manejo adecuado del suelo. Es un alimento básico que se consume en muchos hogares colombianos.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Arroz:</h4><p>Cultivado masivamente en Meta y Casanare. Requiere temperaturas cálidas y riego tecnificado.</p>", unsafe_allow_html=True)
             with ss2:
-                
                 st.image(
                     "https://www.microfertisa.com.co/wp-content/uploads/2021/04/Imagen-2-cultivo-palma-de-aceite-Microfertisa.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Palma de Aceite:</h4><p> La palma de aceite se cultiva en zonas cálidas, especialmente en Meta. Sus frutos se procesan para obtener aceite utilizado en alimentos, jabones y otros productos. Es un cultivo que requiere planificación y cuidados durante varios años.</p>", unsafe_allow_html=True)    
- # Region Amazonía
+                st.markdown("<h4>Palma de Aceite:</h4><p>Desarrollada en losillanuras del Meta para la producción agroindustrial de aceites y derivados.</p>", unsafe_allow_html=True)    
+
     v1, v2 = st.columns(2)
+
+    # Region Amazonía
     with v1:
         with st.container(border=True):
-            st.markdown("<h3>Región Amazonía:<h3>", unsafe_allow_html=True)
+            st.markdown("<h3>Región Amazonía</h3>", unsafe_allow_html=True)
             vs1, vs2 = st.columns(2)
             with vs1:
-                
                 st.image(
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopDO0LRj2yZQLwBAibyEyJwTCgrPkPOq8joBMAYGKLBeD-asSOrw7e3h2&s=10",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Cacao:</h4><p> Se cultiva en departamentos como Caquetá y Putumayo. Crece en ambientes cálidos y húmedos y necesita cuidados adecuados. Sus semillas se utilizan para producir chocolate y otros productos derivados.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Cacao:</h4><p>Se cultiva en Caquetá y Putumayo bajo climas cálidos y húmedos para la producción de chocolate.</p>", unsafe_allow_html=True)
             with vs2:
-                
                 st.image(
                     "https://radionacional-v3.s3.amazonaws.com/s3fs-public/node/article/field_image/Produccion%20de%20chontaduro.jpeg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Chontaduro:</h4><p> Es un fruto tropical presente en distintas zonas de la Amazonía colombiana. Se consume principalmente cocido y también se utiliza para preparar harinas. Es un alimento tradicional para varias comunidades.</p>", unsafe_allow_html=True)
-# Region Insular
+                st.markdown("<h4>Chontaduro:</h4><p>Fruto tropical tradicional de alta importancia nutricional para las comunidades amazónicas.</p>", unsafe_allow_html=True)
+
+    # Region Insular
     with v2:
         with st.container(border=True):
-            st.markdown("<h3>Región Insular:<h3>", unsafe_allow_html=True)
+            st.markdown("<h3>Región Insular</h3>", unsafe_allow_html=True)
             vs1, vs2 = st.columns(2)
             with vs1:
-               
                 st.image(
                     "https://agrotendencia.tv/wp-content/uploads/2020/07/agrotendencia-agropedia-cultivo-de-coco-7.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>Coco:</h4><p>Se encuentra en  las islas San Andrés y Providencia, donde el clima tropical favorece su crecimiento. Se utiliza para preparar arroz con coco, dulces y leche de coco. También es parte de la gastronomía tradicional de las islas.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Coco:</h4><p>Propio de San Andrés y Providencia, esencial para la gastronomía típica insular.</p>", unsafe_allow_html=True)
             with vs2:
-               
                 st.image(
                     "https://www.cocinadominicana.com/wp-content/uploads/2022/05/batata-mercado-dinamarca-DSC2578-2.jpg",
                     use_container_width=True,
                 )
-                st.markdown("<h4>batata:</h4><p> Es un tubérculo que puede cultivarse en zonas tropicales como parte de la agricultura local. Necesita suelos sueltos y buen drenaje para desarrollarse. Se consume cocida, asada o en preparaciones dulces y saladas.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Batata:</h4><p>Tubérculo adaptado a suelos tropicales sueltos, muy versátil en preparaciones dulces y saladas.</p>", unsafe_allow_html=True)
 
     st.markdown("<br><br>", unsafe_allow_html=True)
-
     
     # --- PANEL DE CONTROL Y FILTROS ---
     st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
@@ -563,8 +509,9 @@ st.markdown('</div>', unsafe_allow_html=True)
 
     info_region = DATOS_TERRITORIOS[territorio_elegido]
 
-    st.markdown("<br></br>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 📊 Datos en Tiempo Real: *{territorio_elegido}*")
+    
     # --- TARJETAS KPI ---
     k1, k2, k3, k4 = st.columns(4)
     with k1:
