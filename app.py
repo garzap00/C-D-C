@@ -210,12 +210,12 @@ if menu == "Inicio & Dashboard":
 
     with c1:
         with st.container(border=True):
-            st.markdown("""##Regiones""")
+            st.markdown("<h3>Region Caribe:<h3>", unsave_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
                 st.markdown("<h4>Banano:</h4><p> El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante, suelo fértil y cuidados para crecer. Se consume fresco y también se vende a otros países.</p>", unsafe_allow_html=True)
             with sc2:
-                st.markdown("<h4>Yuca:</h4><p> El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante, suelo fértil y cuidados para crecer. Se consume fresco y también se vende a otros países.</p>", unsafe_allow_html=True)
+                st.markdown("<h4>Yuca:</h4><p> La yuca se cultiva en departamentos como Bolívar, Córdoba, Sucre y Atlántico. Es resistente a los periodos secos y se utiliza para preparar alimentos como yuca cocida, frita y harinas.</p>", unsafe_allow_html=True)
     # Cultivos de referencia
     st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Producción Agrícola</p><h2>Cultivos de referencia</h2>", unsafe_allow_html=True)
 
