@@ -317,7 +317,7 @@ if menu == "Inicio & Dashboard":
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="problem-solution">', unsafe_allow_html=True)
-
+# COLUMNA PROBLEMA
     col_problema, col_solucion = st.columns([1, 1.05], gap="large")
 
     with col_problema:
@@ -372,7 +372,7 @@ if menu == "Inicio & Dashboard":
             las familias campesinas.
         </div>
         """, unsafe_allow_html=True)
-
+# COLUMNA SOLUCIÓN
     with col_solucion:
         st.markdown("""
         <div class="section-title">
@@ -417,7 +417,7 @@ if menu == "Inicio & Dashboard":
     st.markdown("<br>", unsafe_allow_html=True)
 
     st.markdown("<h2>Regiones</h2><p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>lo más sembrado</p>", unsafe_allow_html=True)
-    
+# REGION CARIBE    
     c1, c2 = st.columns(2)
 
     with c1:
@@ -430,7 +430,7 @@ if menu == "Inicio & Dashboard":
             with sc2:
                 st.image("https://blog.mentta.com/wp-content/uploads/2024/06/pexels-daniel-dan-47825192-7543155-scaled.jpg", use_container_width=True)
                 st.markdown("<h4>Yuca:</h4><p>Se cultiva en Bolívar, Córdoba, Sucre y Atlántico.</p>", unsafe_allow_html=True)
-
+# REGION PACIFICA
     with c2:
         with st.container(border=True):
             st.markdown("<h3>Región Pacífica</h3>", unsafe_allow_html=True)
@@ -443,7 +443,7 @@ if menu == "Inicio & Dashboard":
                 st.markdown("<h4>Plátano:</h4><p>Cultivado en zonas cálidas y húmedas como el Chocó.</p>", unsafe_allow_html=True)
 
     s1, s2 = st.columns(2)
-
+# REGION ANDINA
     with s1:
         with st.container(border=True):
             st.markdown("<h3>Región Andina</h3>", unsafe_allow_html=True)
@@ -454,7 +454,7 @@ if menu == "Inicio & Dashboard":
             with ss2:
                 st.image("https://cdn.portalfruticola.com/2020/09/91882f55-potatoes-2543686_1920.jpg", use_container_width=True)
                 st.markdown("<h4>Papa:</h4><p>Principal en zonas frías de Boyacá, Cundinamarca y Nariño.</p>", unsafe_allow_html=True)
-
+# REGION ORINOQUIA
     with s2:
         with st.container(border=True):
             st.markdown("<h3>Región Orinoquía</h3>", unsafe_allow_html=True)
@@ -467,7 +467,7 @@ if menu == "Inicio & Dashboard":
                 st.markdown("<h4>Palma de Aceite:</h4><p>Desarrollada en las altillanuras del Meta.</p>", unsafe_allow_html=True)    
 
     v1, v2 = st.columns(2)
-
+# REGION AMAZONIA 
     with v1:
         with st.container(border=True):
             st.markdown("<h3>Región Amazonía</h3>", unsafe_allow_html=True)
@@ -478,7 +478,7 @@ if menu == "Inicio & Dashboard":
             with vs2:
                 st.image("https://radionacional-v3.s3.amazonaws.com/s3fs-public/node/article/field_image/Produccion%20de%20chontaduro.jpeg", use_container_width=True)
                 st.markdown("<h4>Chontaduro:</h4><p>Fruto tropical de las comunidades amazónicas.</p>", unsafe_allow_html=True)
-
+# REGION INSULAR
     with v2:
         with st.container(border=True):
             st.markdown("<h3>Región Insular</h3>", unsafe_allow_html=True)
@@ -491,7 +491,7 @@ if menu == "Inicio & Dashboard":
                 st.markdown("<h4>Batata:</h4><p>Tubérculo adaptado a suelos tropicales sueltos.</p>", unsafe_allow_html=True)
 
     st.markdown("<br><br>", unsafe_allow_html=True)
-    
+# CAMBIAR SELEC REGION PARA DATOS    
     st.markdown("#### 🗺️ Seleccionar Territorio y Parámetros")
     col_t1, col_t2, col_t3 = st.columns(3)
 
