@@ -302,7 +302,7 @@ if menu == "Inicio & Dashboard":
             ("🌾", "Desconocen el tipo de suelo que necesitan."),
             ("📅", "No conocen la época adecuada para sembrar."),
             ("🐛", "Tienen problemas con sus cultivos y plagas."),
-            ("📶", "En algunas zonas es difícil acceder a internet.")
+            
         ]
 
         tarjetas_cols = st.columns(2)
