@@ -207,12 +207,16 @@ if menu == "Inicio & Dashboard":
     # Introducción y Título principal
     st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Introducción</p><h2>Regiones</h2>", unsafe_allow_html=True)
     c1, c2 = st.columns(2)
-
+# Region Caribe
     with c1:
         with st.container(border=True):
             st.markdown("<h3>Region Caribe:<h3>", unsafe_allow_html=True)
             sc1, sc2 = st.columns(2)
             with sc1:
+                st.image(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
+                    use_container_width=True,
+                )
                 st.markdown("<h4>Banano:</h4><p> El banano se cultiva en zonas cálidas, especialmente en Magdalena y La Guajira. Necesita agua constante, suelo fértil y cuidados para crecer. Se consume fresco y también se vende a otros países.</p>", unsafe_allow_html=True)
             with sc2:
                 st.markdown("<h4>Yuca:</h4><p> La yuca se cultiva en departamentos como Bolívar, Córdoba, Sucre y Atlántico. Es resistente a los periodos secos y se utiliza para preparar alimentos como yuca cocida, frita y harinas.</p>", unsafe_allow_html=True)
