@@ -608,14 +608,18 @@ if menu == "Inicio & Dashboard":
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 🌾 Cultivos Característicos en *{territorio_elegido.split(' ')[0]}*")
 
-    rc1, rc2, rc3, rc4 = st.columns(4)
-    cols = [rc1, rc2, rc3, rc4]
+    # Mostrar cultivos en filas de 4 columnas
+cultivos = info_region["cultivos"]
 
-    for index, cultivo in enumerate(info_region["cultivos"]):
-        with cols[index]:
-            with st.container(border=True):
-                st.markdown(f"##### {cultivo['nombre']}")
-                st.write(cultivo["desc"])
+for i in range(0, len(cultivos), 4):
+    cols = st.columns(4)
+    for j in range(4):
+        if i + j < len(cultivos):
+            cultivo = cultivos[i + j]
+            with cols[j]:
+                with st.container(border=True):
+                    st.markdown(f"##### {cultivo['nombre']}")
+                    st.write(cultivo["desc"])
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
