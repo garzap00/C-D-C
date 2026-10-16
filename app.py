@@ -652,7 +652,8 @@ if menu == "Inicio & Dashboard":
             st.markdown("### Directivos de la institucion")
             st.write("rector")
             st.markdown(
-                "<h1>ffff</h1>
+                "<h1>ffff</h1>"
+                
             )
             
             
