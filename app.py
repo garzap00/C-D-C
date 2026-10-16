@@ -172,7 +172,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Lluvias casi todo el año, especialmente en Chocó",
         "altitud": "0-1.500 m.s.n.m.",
         "est_alt": "Desde costa hasta estribaciones de la cordillera",
-        "imagen": "https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsCVf_pivrCiTqaodd-3U1G_7gJLZWyFNDdiLeqLfanw&s=10",
         "cultivos": [
             {"nombre": "🍌 Plátano", "desc": "Cultivo importante en Chocó"},
             {"nombre": "☕ Café", "desc": "Valle del Cauca, Cauca y Nariño"},
