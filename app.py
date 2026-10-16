@@ -594,7 +594,11 @@ if menu == "Inicio & Dashboard":
     with col_sel:
         territorio_elegido = st.selectbox("Región", list(DATOS_TERRITORIOS.keys()))
 
-    info_region = DATOS_TERRITORIOS[territorio_elegido]
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(f"### 📊 Datos Promedio de: *{territorio_elegido}*")
+
+        info_region = DATOS_TERRITORIOS[territorio_elegido]
 
     with col_foto:
         st.image(
@@ -602,9 +606,6 @@ if menu == "Inicio & Dashboard":
             use_container_width=True,
             caption=f"Región {territorio_elegido}"
         )
-
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown(f"### 📊 Datos Promedio de: *{territorio_elegido}*")
 
     k1, k2, k3, k4 = st.columns(4)
     with k1:
