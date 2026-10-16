@@ -641,15 +641,15 @@ if menu == "Inicio & Dashboard":
     st.markdown("<br>", unsafe_allow_html=True)
 
     cc1, cc2, cc3 = st.columns(3)
-    with cc1:
+    with cc2:
         with st.container(border=True):
             st.markdown("### Correo electrónico")
             st.write("campodigitalcolombia2@gmail.com")
             if st.button("Enviar correo"):
                 st.info("Correo de contacto: campodigitalcolombia2@gmail.com")
-    with cc2:
+    with cc1:
         with st.container(border=True):
-            st.markdown("###Directivos de la institucion")
+            st.markdown("### Directivos de la institucion")
             st.write("...")
     with cc3:
         with st.container(border=True):
@@ -658,7 +658,7 @@ if menu == "Inicio & Dashboard":
             st.write("-Samuel Matias Gómez Carrillo")
             st.write("-Josse Luis Quimbayo Amaya ")
             st.write("-Sebastian David Mendez Ariza")
-            st.write("-Sahara Sofia Roberto Venegas")
+            st.write("-Sáhara Sofía Roberto Venegas")
 # ==========================================
 # SECCIÓN 2: FORO Y RED SOCIAL AGRO
 # ==========================================
