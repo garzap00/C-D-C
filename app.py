@@ -593,18 +593,18 @@ if menu == "Inicio & Dashboard":
 
     # Foto debajo del selector
 # Foto debajo del selector (controlando el ALTO)
-st.markdown(
-    f"""
-    <div style="text-align: center; margin: 15px 0;">
-        <img src="{info_region['imagen']}" 
+    st.markdown(
+       f"""
+        <div style="text-align: center; margin: 15px 0;">
+            <img src="{info_region['imagen']}" 
              style="max-height: 280px; width: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-        <p style="color: #555; font-size: 14px; margin-top: 8px; font-weight: 500;">
+            <p style="color: #555; font-size: 14px; margin-top: 8px; font-weight: 500;">
             Región {territorio_elegido}
-        </p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 📊 Datos Promedio de: *{territorio_elegido}*")
