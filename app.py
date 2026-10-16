@@ -598,7 +598,7 @@ if menu == "Inicio & Dashboard":
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 📊 Datos Promedio de: *{territorio_elegido}*")
 
-        info_region = DATOS_TERRITORIOS[territorio_elegido]
+    info_region = DATOS_TERRITORIOS[territorio_elegido]
 
     with col_foto:
         st.image(
