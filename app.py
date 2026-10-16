@@ -142,6 +142,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Estación seca prolongada, lluvias concentradas",
         "altitud": "0-200 m.s.n.m.",
         "est_alt": "Llanura costera y valles bajos",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
         "cultivos": [
             {"nombre": "🌽 Maíz", "desc": "Cultivo presente en casi todo el Caribe"},
             {"nombre": "🌿 Yuca", "desc": "Base alimentaria de la región"},
@@ -171,6 +172,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Lluvias casi todo el año, especialmente en Chocó",
         "altitud": "0-1.500 m.s.n.m.",
         "est_alt": "Desde costa hasta estribaciones de la cordillera",
+        "imagen": "https://mejorconsalud.as.com/wp-content/uploads/2022/09/cana-azucar-1.jpg",
         "cultivos": [
             {"nombre": "🍌 Plátano", "desc": "Cultivo importante en Chocó"},
             {"nombre": "☕ Café", "desc": "Valle del Cauca, Cauca y Nariño"},
@@ -197,6 +199,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Dos temporadas de lluvia al año",
         "altitud": "1.000-3.000 m.s.n.m.",
         "est_alt": "Cordilleras y altiplanos",
+        "imagen": "https://apasionadosporelcafe.com/wp-content/uploads/2021/11/shutterstock_559059673-1.jpg",
         "cultivos": [
             {"nombre": "☕ Café", "desc": "Cultivo estrella de la región"},
             {"nombre": "🥑 Aguacate", "desc": "Muy importante en varios departamentos"},
@@ -229,6 +232,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Una sola temporada de lluvias intensa",
         "altitud": "100-500 m.s.n.m.",
         "est_alt": "Llanuras y sabanas",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10",
         "cultivos": [
             {"nombre": "🌾 Arroz", "desc": "Cultivo principal de la región"},
             {"nombre": "🌽 Maíz", "desc": "Presente en todos los departamentos"},
@@ -255,6 +259,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Lluvias frecuentes durante casi todo el año",
         "altitud": "100-400 m.s.n.m.",
         "est_alt": "Selva baja y planicies",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopDO0LRj2yZQLwBAibyEyJwTCgrPkPOq8joBMAYGKLBeD-asSOrw7e3h2&s=10",
         "cultivos": [
             {"nombre": "🌿 Yuca", "desc": "Base alimentaria de la Amazonia"},
             {"nombre": "🍌 Plátano", "desc": "Presente en varios departamentos"},
@@ -283,6 +288,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Lluvias moderadas, influenciadas por el Caribe",
         "altitud": "0-100 m.s.n.m.",
         "est_alt": "Islas bajas de origen coralino",
+        "imagen": "https://agrotendencia.tv/wp-content/uploads/2020/07/agrotendencia-agropedia-cultivo-de-coco-7.jpg",
         "cultivos": [
             {"nombre": "🥥 Coco", "desc": "Cultivo característico de las islas"},
             {"nombre": "🌿 Yuca", "desc": "Presente en las tres islas"},
@@ -580,10 +586,22 @@ if menu == "Inicio & Dashboard":
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
-    # CAMBIAR SELEC REGION PARA DATOS
+    # ========== SELECCIÓN DE REGIÓN CON FOTO ==========
     st.markdown("#### 🗺️ Seleccionar Región")
-    territorio_elegido = st.selectbox("Región", list(DATOS_TERRITORIOS.keys()))
+
+    col_sel, col_foto = st.columns([1, 1.5])
+
+    with col_sel:
+        territorio_elegido = st.selectbox("Región", list(DATOS_TERRITORIOS.keys()))
+
     info_region = DATOS_TERRITORIOS[territorio_elegido]
+
+    with col_foto:
+        st.image(
+            info_region["imagen"],
+            use_container_width=True,
+            caption=f"Región {territorio_elegido}"
+        )
 
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 📊 Datos Promedio de: *{territorio_elegido}*")
@@ -601,7 +619,7 @@ if menu == "Inicio & Dashboard":
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"### 🌾 Cultivos Característicos en *{territorio_elegido.split(' ')[0]}*")
 
-    # Mostrar cultivos en filas de 4 columnas (CORREGIDO: ahora está dentro del if)
+    # Mostrar cultivos en filas de 4 columnas
     cultivos = info_region["cultivos"]
     for i in range(0, len(cultivos), 4):
         cols = st.columns(4)
