@@ -636,11 +636,11 @@ if menu == "Inicio & Dashboard":
 
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("<p style='color:#a48735; font-weight:800; font-size:12px; letter-spacing:2px; text-transform:uppercase;'>Campo Digital Colombia</p>", unsafe_allow_html=True)
-    st.markdown("## Conecta con el proyecto")
-    st.write("Espacio de contacto para conocer la propuesta y continuar desarrollando herramientas digitales para el sector rural.")
+    st.markdown("## Nuestro proyecto")
+    st.write("Espacio de contacto para conocer la propuesta y continuar desarrollando herramientas digitales para el sector rural,y los directivos de la institucion y creadores de la pagina ")
     st.markdown("<br>", unsafe_allow_html=True)
 
-    cc1, cc2 = st.columns(2)
+    cc1, cc2, cc3 = st.columns(3)
     with cc1:
         with st.container(border=True):
             st.markdown("### Correo electrónico")
@@ -649,10 +649,16 @@ if menu == "Inicio & Dashboard":
                 st.info("Correo de contacto: campodigitalcolombia2@gmail.com")
     with cc2:
         with st.container(border=True):
-            st.markdown("### Villavicencio, Meta")
-            st.write("C.D.C. tiene como referencia territorial inicial Villavicencio y el departamento del Meta.")
-            st.link_button("Abrir en Google Maps", "https://www.google.com/maps/place/Villavicencio,+Meta")
-
+            st.markdown("###Directivos de la institucion")
+            st.write("...")
+    with cc3:
+        with st.container(border=True):
+            st.markdown("### Creadores de C.D.C")
+            st.write("-Gabriel Arturo Garzón Penagos")
+            st.write("-Samuel Matias Gómez Carrillo")
+            st.write("-Josse Luis Quimbayo Amaya ")
+            st.write("-Sebastian David Mendez Ariza")
+            st.write("-Sahara Sofia Roberto Venegas")
 # ==========================================
 # SECCIÓN 2: FORO Y RED SOCIAL AGRO
 # ==========================================
