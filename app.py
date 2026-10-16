@@ -655,7 +655,7 @@ if menu == "Inicio & Dashboard":
             st.write("#### Cordinador"
             st.write("Carlos Andrés ramíres"))
             st.write("#### Cordinadora")
-            st.write("..."))
+            st.write("...")
             
     with cc3:
         with st.container(border=True):
