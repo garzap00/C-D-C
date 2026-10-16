@@ -651,6 +651,11 @@ if menu == "Inicio & Dashboard":
         with st.container(border=True):
             st.markdown("### Directivos de la institucion")
             st.write("rector")
+            st.markdown(
+                "<h1>ffff</h1>
+            )
+            
+            
             st.write("...")
             st.write("...")
     with cc3:
