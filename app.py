@@ -652,10 +652,9 @@ if menu == "Inicio & Dashboard":
             st.markdown("### Directivos de la institucion")
             st.write("#### Rector")
             st.write("Gilberto Useche Gutiérrez")
-            st.write("#### Cordinador")
+            st.write("#### Cordinadores")
             st.write("Carlos Andrés ramíres")
-            st.write("#### Cordinadora")
-            st.write("...")
+            st.write("Cordinadora")
             
     with cc3:
         with st.container(border=True):
