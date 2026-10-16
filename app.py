@@ -339,9 +339,9 @@ if menu == "Inicio & Dashboard":
                 SENA • Proyecto Agropecuario
             </span>
             <h1 style="font-size: 38px; margin-top: 15px;">
-                Sembramos Conocimiento y 
+                Innovamos el campo de hoy 
                 <span style="color:#d1b052;">
-                    Sembramos Futuro
+                    para cosechar el futuro de mañana
                 </span>
             </h1>
             <p style="font-size: 15px; color: #dce6df; max-width: 700px;">
@@ -649,12 +649,13 @@ if menu == "Inicio & Dashboard":
                 st.info("Correo de contacto: campodigitalcolombia2@gmail.com")
     with cc1:
         with st.container(border=True):
-            st.markdown("### Directivos de la institucion")
+            st.markdown("### Directivos de la institución Silvia Aponte")
             st.write("#### Rector")
             st.write("Gilberto Useche Gutiérrez")
-            st.write("#### Cordinadores")
+            st.write("#### Cordinador")
             st.write("Carlos Andrés ramíres")
-            st.write("Cordinadora")
+            st.write("### Instructora")
+            st.write("Maira Rubiela Acosta")
             
     with cc3:
         with st.container(border=True):
