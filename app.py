@@ -142,7 +142,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Estación seca prolongada, lluvias concentradas",
         "altitud": "0-200 m.s.n.m.",
         "est_alt": "Llanura costera y valles bajos",
-        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHsBjVPxM9dPvIsgMiDSywqJIBIfxF7LWUYZZD-QUEg&s=10",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6-FtKHVjEt3Kg_DxAScZ6UcW8Xi2m_NHUojtT5aSHg&s=10",
         "cultivos": [
             {"nombre": "🌽 Maíz", "desc": "Cultivo presente en casi todo el Caribe"},
             {"nombre": "🌿 Yuca", "desc": "Base alimentaria de la región"},
@@ -199,7 +199,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Dos temporadas de lluvia al año",
         "altitud": "1.000-3.000 m.s.n.m.",
         "est_alt": "Cordilleras y altiplanos",
-        "imagen": "https://apasionadosporelcafe.com/wp-content/uploads/2021/11/shutterstock_559059673-1.jpg",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL7Scwv8-ge6UqAYNiD7HFANXA0cN6kMgEsKj_VAh5J2M9DFCD4nAz4RU&s=10",
         "cultivos": [
             {"nombre": "☕ Café", "desc": "Cultivo estrella de la región"},
             {"nombre": "🥑 Aguacate", "desc": "Muy importante en varios departamentos"},
@@ -232,7 +232,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Una sola temporada de lluvias intensa",
         "altitud": "100-500 m.s.n.m.",
         "est_alt": "Llanuras y sabanas",
-        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVJsiV9lFmNi3lJf4Bd4u5K6rsPKWWBkuHN-tk3sYAo0AtzQaUIVOSfE5&s=10",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1lJDl20gjF7ynnz7DA7fbxoR5RPtxKHcJTC_5kKtAiA&s=10",
         "cultivos": [
             {"nombre": "🌾 Arroz", "desc": "Cultivo principal de la región"},
             {"nombre": "🌽 Maíz", "desc": "Presente en todos los departamentos"},
@@ -259,7 +259,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Lluvias frecuentes durante casi todo el año",
         "altitud": "100-400 m.s.n.m.",
         "est_alt": "Selva baja y planicies",
-        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRopDO0LRj2yZQLwBAibyEyJwTCgrPkPOq8joBMAYGKLBeD-asSOrw7e3h2&s=10",
+        "imagen": "https://colombia.co/sites/default/files/marca-pais/media/images/geografia-de-la-region-amazonica.webp",
         "cultivos": [
             {"nombre": "🌿 Yuca", "desc": "Base alimentaria de la Amazonia"},
             {"nombre": "🍌 Plátano", "desc": "Presente en varios departamentos"},
@@ -288,7 +288,7 @@ DATOS_TERRITORIOS = {
         "est_pre": "Lluvias moderadas, influenciadas por el Caribe",
         "altitud": "0-100 m.s.n.m.",
         "est_alt": "Islas bajas de origen coralino",
-        "imagen": "https://agrotendencia.tv/wp-content/uploads/2020/07/agrotendencia-agropedia-cultivo-de-coco-7.jpg",
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY2Hk6ANaJiH1AKcYKJoalUbnCrXKcEL-aYOGHG_5PIA&s=10",
         "cultivos": [
             {"nombre": "🥥 Coco", "desc": "Cultivo característico de las islas"},
             {"nombre": "🌿 Yuca", "desc": "Presente en las tres islas"},
